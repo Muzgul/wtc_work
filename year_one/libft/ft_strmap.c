@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 18:20:27 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 11:04:09 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 11:18:14 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/05/24 11:22:52 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strnew(size_t size)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
 	int i;
 	char *str;
 
-	str = ft_memalloc(size);
-	if (str != NULL)
+	if (f != NULL && s != NULL)
 	{
-		i = 0;
-		while (i < size)
-		{
-			str[i] = '\0';
-			i++;
-		}
+		str = ft_strnew(ft_strlen(s));
+
 	}
-	return (str);
-}	
+}

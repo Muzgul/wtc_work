@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 18:20:27 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 11:04:09 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 11:11:05 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/05/24 11:13:43 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strnew(size_t size)
+void	ft_striter(char *s, void (*f)(char *))
 {
 	int i;
-	char *str;
 
-	str = ft_memalloc(size);
-	if (str != NULL)
+	if (f != NULL && s != NULL)
 	{
 		i = 0;
-		while (i < size)
+		while (s[i] != '\0')
 		{
-			str[i] = '\0';
+			(*f)(&s[i]);
 			i++;
 		}
 	}
-	return (str);
-}	
+}
