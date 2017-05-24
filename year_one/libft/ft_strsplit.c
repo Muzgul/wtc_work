@@ -1,33 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/24 11:18:14 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 12:49:53 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 15:17:21 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/05/24 15:33:41 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strmap(char const *s, char (*f)	(char))
+char	**ft_strsplit(char const *s, char c)
 {
-	int		i;
-	char	*str;
-
-	str = NULL;
-	if (f != NULL && s != NULL)
-	{
-		str = ft_strnew(ft_strlen(s));
-		if (str == NULL)
-		{
-			i = 0;
-			while (s[i] != '\0')
-			{
-				str[i] = (*f)(s[i]);
-				i++;
-			}
-		}
-	}
-	return (str);
+	
 }

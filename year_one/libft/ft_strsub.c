@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/24 11:18:14 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 12:49:53 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 13:15:49 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/05/24 13:31:35 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strmap(char const *s, char (*f)	(char))
+#include <string.h>
+
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	int		i;
 	char	*str;
 
 	str = NULL;
-	if (f != NULL && s != NULL)
+	if (s != NULL && s[start] && s[start + len - 1])
 	{
-		str = ft_strnew(ft_strlen(s));
-		if (str == NULL)
+		str = ft_strnew(len);
+		if (str != NULL)
 		{
 			i = 0;
-			while (s[i] != '\0')
+			while (i < len)
 			{
-				str[i] = (*f)(s[i]);
+				str[i] = s[i + start];
 				i++;
 			}
+			if (ft_strequ(s, str) == 0)
+				str = NULL;
 		}
 	}
 	return (str);

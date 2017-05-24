@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strspaces.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/24 11:18:14 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 12:49:53 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 13:56:19 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/05/24 13:57:55 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strmap(char const *s, char (*f)	(char))
+int		ft_strspaces(char *s)
 {
-	int		i;
-	char	*str;
+	int i;
+	int j;
 
-	str = NULL;
-	if (f != NULL && s != NULL)
+	j = 0;
+	if (s != NULL)
 	{
-		str = ft_strnew(ft_strlen(s));
-		if (str == NULL)
+		i = 0;
+		while (s[i] != '\0')
 		{
-			i = 0;
-			while (s[i] != '\0')
-			{
-				str[i] = (*f)(s[i]);
-				i++;
-			}
+			if (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+				j++;
+			i++;
 		}
 	}
-	return (str);
+	return (j);
 }

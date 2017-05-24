@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/24 11:18:14 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 12:49:53 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 14:05:50 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/05/24 14:05:53 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strmap(char const *s, char (*f)	(char))
+char	*ft_strmapi(char const *s, char (*f)	(unsigned int, char))
 {
-	int		i;
-	char	*str;
+	unsigned int	i;
+	char			*str;
 
 	str = NULL;
 	if (f != NULL && s != NULL)
@@ -24,7 +24,7 @@ char	*ft_strmap(char const *s, char (*f)	(char))
 			i = 0;
 			while (s[i] != '\0')
 			{
-				str[i] = (*f)(s[i]);
+				str[i] = (*f)(i, s[i]);
 				i++;
 			}
 		}

@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 18:20:27 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 11:04:09 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/05/24 13:26:58 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 char	*ft_strnew(size_t size)
 {
-	int i;
-	char *str;
+	int		i;
+	char	*str;
 
+	size++;
 	str = ft_memalloc(size);
 	if (str != NULL)
 	{
@@ -28,4 +29,4 @@ char	*ft_strnew(size_t size)
 		}
 	}
 	return (str);
-}	
+}

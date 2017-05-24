@@ -6,13 +6,15 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 11:21:06 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 11:22:17 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/05/24 12:47:41 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *s)
+#include <string.h>
+
+size_t	ft_strlen(const char *s)
 {
-	int i;
+	size_t i;
 
 	i = 0;
 	if (s != NULL)

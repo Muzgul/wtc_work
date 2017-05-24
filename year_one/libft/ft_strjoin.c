@@ -1,32 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/24 11:18:14 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 12:49:53 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 13:34:01 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/05/24 13:52:24 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strmap(char const *s, char (*f)	(char))
+int		str_copy(char *src, char *dest, int n)
+{
+	int i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		src[i] = dest[n];
+		i++;
+		n++;
+	}
+	return (n);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
+	int		j;
+	int		length;
 	char	*str;
 
 	str = NULL;
-	if (f != NULL && s != NULL)
+	if (s1 != NULL && s2 != NULL)
 	{
-		str = ft_strnew(ft_strlen(s));
-		if (str == NULL)
+		length = ft_strlen(s1) + ft_strlen(s2);
+		str = ft_strnew(length);
+		if (str != NULL)
 		{
-			i = 0;
-			while (s[i] != '\0')
-			{
-				str[i] = (*f)(s[i]);
-				i++;
-			}
+			j = 0;
+			j = str_copy(s1, str, j);
+			str_copy(s2, str, j);
 		}
 	}
 	return (str);

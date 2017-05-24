@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/24 11:18:14 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 12:49:53 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 14:05:29 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/05/24 14:05:37 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strmap(char const *s, char (*f)	(char))
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	int		i;
-	char	*str;
+	int i;
 
-	str = NULL;
-	if (f != NULL && s != NULL)
+	if (s1 != NULL && s2 != NULL)
 	{
-		str = ft_strnew(ft_strlen(s));
-		if (str == NULL)
+		i = 0;
+		while (s1[i] != '\0' && s2[i] != '\0' && i < n)
 		{
-			i = 0;
-			while (s[i] != '\0')
-			{
-				str[i] = (*f)(s[i]);
-				i++;
-			}
+			if (s1[i] != s2[i])
+				return (0);
+			i++;
 		}
+		if ((s[i] == '\0' && s2[i] != '\0') ||
+			(s1[i] != '\0' && s2[i] == '\0'))
+			return (0);
 	}
-	return (str);
+	if (s1 == NULL && s2 == NULL)
+		return (1);
+	else
+		return (0);
+	return (1);
 }
