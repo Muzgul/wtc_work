@@ -6,11 +6,9 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 13:15:49 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 13:31:35 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/05/30 11:49:05 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {

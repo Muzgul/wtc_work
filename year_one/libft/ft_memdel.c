@@ -6,12 +6,9 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 17:37:43 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 11:02:43 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/05/30 11:46:43 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
-#include <string.h>
 
 void	ft_memdel(void **ap)
 {

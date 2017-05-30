@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/24 11:09:54 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/30 11:50:08 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/30 11:16:59 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/05/30 11:37:19 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+char	*ft_itoa(int n)
 {
-	int i;
+	size_t	i;
+	char	*str;
 
-	i = 0;
-	while (s[i])
+	str = NULL;
+	if (n < 0)
 	{
-		s[i] = '\0';
+		str = ft_strnew(2);
+		str[0] = '-';
+		i = 1;
+		n *= -1;
+	}
+	else
+	{
+		str = ft_strnew(1);
+		i = 0;
+	}
+	while (n > 0)
+	{
+		str[i] = (n % 10) + '0';
+		n /= 10;
+		if (n > 0)
+			str = ft_array_up(str, i + 1, 1);
 		i++;
 	}
+	return (str);
 }

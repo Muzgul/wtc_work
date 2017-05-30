@@ -6,11 +6,9 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 11:21:06 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/24 12:47:41 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/05/30 11:47:19 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
 
 size_t	ft_strlen(const char *s)
 {

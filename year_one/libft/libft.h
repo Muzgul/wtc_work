@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/24 11:09:54 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/30 11:50:08 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/30 11:52:40 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/05/30 11:53:59 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
-{
-	int i;
+#ifndef FT_LIBFT_H
+# define FT_LIBFT_H
+# include <sting.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-	i = 0;
-	while (s[i])
-	{
-		s[i] = '\0';
-		i++;
-	}
-}
+
+
+# endif

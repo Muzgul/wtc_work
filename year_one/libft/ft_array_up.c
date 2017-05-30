@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_array_up.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/24 11:09:54 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/30 11:50:08 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/29 17:37:22 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/05/30 11:48:18 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+void	*ft_array_up(void *ap, size_t size, size_t n)
 {
-	int i;
+	size_t	i;
+	void	*new;
 
-	i = 0;
-	while (s[i])
+	if (ap != NULL && n > 0)
 	{
-		s[i] = '\0';
-		i++;
+		new = ft_memalloc(size + n);
+		i = 0;
+		while (i < size)
+		{
+			new[i] = ap[i];
+			i++;
+		}
+		ft_memdel(&ap);
 	}
+	else
+		return (ap);
+	return (new);
 }
