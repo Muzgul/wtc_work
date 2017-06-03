@@ -6,9 +6,11 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 13:34:01 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/30 11:50:23 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/03 14:10:52 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		str_copy(char *src, char *dest, int n)
 {

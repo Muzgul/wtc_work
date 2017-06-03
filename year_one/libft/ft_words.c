@@ -6,9 +6,11 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 09:39:20 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/30 11:51:39 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/03 14:39:33 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t		ft_words(char *str, char d)
 {
@@ -27,4 +29,3 @@ size_t		ft_words(char *str, char d)
 	}
 	return (n);
 }
-

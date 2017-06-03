@@ -6,9 +6,11 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 11:18:14 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/30 11:48:01 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/03 14:03:25 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strmap(char const *s, char (*f)	(char))
 {

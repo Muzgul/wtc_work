@@ -6,9 +6,11 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 11:42:42 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/30 11:43:52 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/03 14:07:15 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_pustr_fd(char const *s, int fd)
 {

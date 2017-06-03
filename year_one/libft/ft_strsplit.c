@@ -6,9 +6,11 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 15:17:21 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/30 11:48:09 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/03 14:38:14 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	**ft_strsplit(char const *s, char c)
 {
@@ -24,18 +26,15 @@ char	**ft_strsplit(char const *s, char c)
 		ac = (char **)malloc(sizeof(char *) * ft_words(s, c));
 		while (s[i] != '\0')
 		{
-			if (s[i] != '*')
+			if (ft_findnext(s, '*', i) > 1)
 			{
-				x = i;
-				while (s[i] != '*' && s[i] != '\0')
-					i++;
-				ac[d] = ft_strsub(s, x, i - x);
-				d++;	
+				ac[d] = ft_strsub(s, i + 1, ft_findnext(s, '*', i));
+				d++;
 			}
-			else
-				i++;
+			i += ft_findnext(s, '*', i);
 		}
-	}else
+	}
+	else
 		ac = NULL;
 	return (ac);
 }

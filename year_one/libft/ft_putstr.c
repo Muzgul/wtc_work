@@ -6,9 +6,11 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 11:38:15 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/05/30 11:39:22 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/03 14:04:44 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_putstr(char const *s)
 {

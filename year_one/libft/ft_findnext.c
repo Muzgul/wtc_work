@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_findnext.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/24 11:21:06 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/03 13:35:26 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/03 14:26:18 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/03 14:35:29 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t		ft_findnext(char *str, char c, size_t start)
 {
 	size_t i;
 
-	i = 0;
-	if (s != NULL)
-	{
-		while (s[i] != '\0')
-			i++;
-	}
-	return (i);
+	i = start + 1;
+	while (str[i] && str[i] != '\0' && str[i] != c)
+		i++;
+	if (str[i] != c)
+		return (0);
+	return (i - start);
 }
