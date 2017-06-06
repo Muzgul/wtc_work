@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 11:38:15 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/03 14:04:44 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/06 13:51:03 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_putstr(char const *s)
 
 	if (s != NULL)
 	{
+		i = 0;
 		while (s[i] != '\0')
 		{
 			ft_putchar(s[i]);

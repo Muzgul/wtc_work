@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 13:53:20 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/03 14:08:36 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/06 13:39:27 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*ft_strtrim(char *s)
 	int		j;
 	char	*str;
 
+	str = NULL;
 	if (s != NULL)
 	{
 		str = ft_strnew(ft_strlen(s) - ft_strspaces(s));

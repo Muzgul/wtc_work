@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 15:17:21 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/03 14:38:14 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/06 11:54:25 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	**ft_strsplit(char const *s, char c)
 {
 	char	**ac;
 	size_t	i;
-	size_t	x;
 	size_t	d;
 
 	if (s != NULL)

@@ -6,13 +6,13 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 11:37:35 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/03 13:36:13 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/06 13:42:18 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char const *s)
+void	ft_putchar(char s)
 {
-	write(1, &c, 1);
+	write(1, &s, 1);
 }

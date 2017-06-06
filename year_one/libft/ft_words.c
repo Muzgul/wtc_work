@@ -6,13 +6,13 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 09:39:20 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/03 14:39:33 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/06 13:23:44 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_words(char *str, char d)
+size_t		ft_words(char const *str, char d)
 {
 	size_t i;
 	size_t n;

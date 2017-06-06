@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 13:34:01 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/03 14:10:52 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/06 13:48:41 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int		str_copy(char *src, char *dest, int n)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
 	int		j;
 	int		length;
 	char	*str;
@@ -41,8 +40,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		if (str != NULL)
 		{
 			j = 0;
-			j = str_copy(s1, str, j);
-			str_copy(s2, str, j);
+			j = str_copy((char*)s1, str, j);
+			str_copy((char*)s2, str, j);
 		}
 	}
 	return (str);

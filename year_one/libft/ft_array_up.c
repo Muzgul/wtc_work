@@ -6,16 +6,16 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 17:37:22 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/03 14:04:04 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/06 13:50:08 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_array_up(void *ap, size_t size, size_t n)
+char	*ft_array_up(char *ap, size_t size, size_t n)
 {
 	size_t	i;
-	void	*new;
+	char	*new;
 
 	if (ap != NULL && n > 0)
 	{
@@ -26,7 +26,7 @@ void	*ft_array_up(void *ap, size_t size, size_t n)
 			new[i] = ap[i];
 			i++;
 		}
-		ft_memdel(&ap);
+		ft_memdel((void**)&ap);
 	}
 	else
 		return (ap);

@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 18:20:27 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/03 14:11:09 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/06 13:29:51 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strnew(size_t size)
 {
-	int		i;
+	size_t	i;
 	char	*str;
 
 	size++;

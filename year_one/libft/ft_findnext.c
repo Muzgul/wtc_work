@@ -6,13 +6,13 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/03 14:26:18 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/03 14:35:29 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/06 13:26:45 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_findnext(char *str, char c, size_t start)
+size_t		ft_findnext(char const *str, char c, size_t start)
 {
 	size_t i;
 
