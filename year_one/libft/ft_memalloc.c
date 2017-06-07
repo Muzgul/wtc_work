@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 14:16:18 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/06 11:52:04 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/06/07 11:23:34 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memalloc(size_t size)
 {
 	void *temp;
 
+	if (size == 0)
+		return (NULL);
 	temp = (void *)malloc(sizeof(void) * size);
 	if (temp == NULL)
 	{
