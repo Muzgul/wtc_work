@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/07 15:14:23 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/09 10:52:24 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 15:12:59 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/09 15:20:39 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+int		ft_isprint(int c)
 {
-	size_t i;
-
-	while (dst[i] && src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	return (dest);
+	if (ft_isalnum(c) != 0)
+		return (1);
+	if (c >= 32 && c <= 39)
+		return (1);
+	if (c >= 40 && c <= 47)
+		return (1);
+	if (c >= 58 && c <= 63 || c == 64)
+		return (1);
+	if (c >= 91 && c <= 95 || c == 96)
+		return (1);
+	if (c >= 123 && c <= 126)
+		return (1);
+	return (0);
 }
