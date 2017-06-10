@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_words.c                                         :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/30 09:39:20 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/06 13:23:44 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 15:07:03 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/10 10:50:27 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_words(char const *str, char d)
+int		ft_isdigit(int c)
 {
-	size_t i;
-	size_t n;
-
-	i = 0;
-	n = 0;
-	while (str[i] != '\0')
-	{
-		while (str[i] != d && str[i] != '\0')
-			i++;
-		n++;
-		if (str[i] != '\0')
-			i++;
-	}
-	return (n);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strspaces.c                                     :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/24 13:56:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/03 13:35:51 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 15:12:59 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/10 10:53:52 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strspaces(char *s)
+int		ft_isprint(int c)
 {
-	int i;
-	int j;
-
-	j = 0;
-	if (s != NULL)
-	{
-		i = 0;
-		while (s[i] != '\0')
-		{
-			if (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-				j++;
-			i++;
-		}
-	}
-	return (j);
+	if (ft_isalnum(c) != 0)
+		return (1);
+	if (c >= 32 && c <= 39)
+		return (1);
+	if (c >= 40 && c <= 47)
+		return (1);
+	if (c >= 58 && c <= 63 || c == 64)
+		return (1);
+	if (c >= 91 && c <= 95 || c == 96)
+		return (1);
+	if (c >= 123 && c <= 126)
+		return (1);
+	return (0);
 }
