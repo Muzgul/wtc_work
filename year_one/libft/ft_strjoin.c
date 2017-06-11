@@ -12,23 +12,8 @@
 
 #include "libft.h"
 
-int		str_copy(char *src, char *dest, int n)
-{
-	int i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		src[i] = dest[n];
-		i++;
-		n++;
-	}
-	return (n);
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		j;
 	int		length;
 	char	*str;
 
@@ -39,9 +24,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		str = ft_strnew(length);
 		if (str != NULL)
 		{
-			j = 0;
-			j = str_copy((char*)s1, str, j);
-			str_copy((char*)s2, str, j);
+			ft_strcpy(str, s1);
+			str += ft_strlen(s1);
+			ft_strcpy(str, s2);
 		}
 	}
 	return (str);

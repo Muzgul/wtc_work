@@ -21,8 +21,7 @@ void	ft_bzero(void *s, size_t n)
 		p = s;
 		while (n > 0)
 		{
-			*p = NULL;
-			p++;
+			*(p + n) = '\0';
 			n--;
 		}
 	}

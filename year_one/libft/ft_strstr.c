@@ -23,12 +23,12 @@ char	*ft_strstr(const char *big, const char *little)
 		x = 0;
 		while (big[i] != '\0')
 		{
-			if (big[i] = little[x])
+			if (big[i] == little[x])
 				x++;
 			else
 				x = 0;
-			if (little[x] = '\0')
-				return (&big[i]);
+			if (little[x] == '\0')
+				return ((char*)&big[i]);
 			i++;
 		}
 	}
