@@ -17,16 +17,14 @@ char	*ft_strdup(const char *s1)
 	char *str;
 	size_t i;
 
-	str = NULL;
-	if (s1 != NULL)
+	str = ft_strnew(ft_strlen(s1));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
 	{
-		str = ft_strnew(ft_strlen(s1));
-		i = 0;
-		while (s1[i] != '\0')
-		{
-			str[i] = s1[i];
-			i++;
-		}
+		str[i] = s1[i];
+		i++;
 	}
 	return (str);
 }

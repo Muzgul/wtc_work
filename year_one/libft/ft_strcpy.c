@@ -15,17 +15,20 @@
 char	*ft_strcpy(char *dst, const char *src)
 {
 	size_t i;
+	size_t d;
+	size_t s;
 
 	dst = NULL;
-	if (src != NULL)
+	i = 0;
+	d = ft_arrlen((void*)dst);
+	s = ft_arrlen((void*)s); 
+	while (i < d)
 	{
-		i = 0;
-		while (src[i] != '\0')
-		{
+		if (i < s)
 			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		else
+			dst[i] = '\0';
+		i++;
 	}
 	return (dst);
 }

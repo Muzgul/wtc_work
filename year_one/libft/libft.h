@@ -17,6 +17,7 @@
 # include <unistd.h>
 
 char	*ft_array_up(char *ap, size_t size, size_t n);
+size_t		ft_arrlen(const void *arr);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 size_t		ft_findnext(char const *str, char c, size_t start);
