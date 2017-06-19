@@ -18,19 +18,16 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	char	*str;
 
 	str = NULL;
-	if (s != NULL && s[start] && s[start + len - 1])
+	if (s != NULL)
 	{
 		str = ft_strnew(len);
-		if (str != NULL)
+		if (str == NULL)
+			return (NULL);
+		i = 0;
+		while (i < len)
 		{
-			i = 0;
-			while (i < len)
-			{
-				str[i] = s[i + start];
-				i++;
-			}
-			if (ft_strequ(s, str) == 0)
-				str = NULL;
+			str[i] = s[i + start];
+			i++;
 		}
 	}
 	return (str);

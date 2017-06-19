@@ -20,9 +20,7 @@ void	*ft_memalloc(size_t size)
 		return (NULL);
 	temp = (void *)malloc(sizeof(void) * size);
 	if (temp == NULL)
-	{
-		free(temp);
-		temp = NULL;
-	}
+		return (NULL);
+	ft_strclr((char*)temp);
 	return (temp);
 }

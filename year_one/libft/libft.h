@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+size_t		ft_strsearch(const char *str, char c);
 char	*ft_array_up(char *ap, size_t size, size_t n);
 size_t		ft_arrlen(const void *arr);
 int		ft_atoi(const char *str);
