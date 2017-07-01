@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/22 15:21:38 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/22 15:21:40 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 13:33:31 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/01 16:06:10 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 32
-# include "libft/libft.h"
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t i;
+	size_t x;
 
-#endif
+	i = 0;
+	x = 0;
+	while (big[i] != '\0' && i < len)
+	{
+		if (big[i] == little[x])
+			x++;
+		else
+			x = 0;
+		if (little[x] == '\0')
+			return ((char*)&big[i]);
+		i++;
+	}
+	if (big[0] == '\0' && big[0] == little[0])
+		return ((char*)big);
+	return (NULL);
+}

@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/22 15:21:38 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/22 15:21:40 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/07/01 14:40:59 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/01 15:12:35 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 32
-# include "libft/libft.h"
+#incude "libft/libft.h"
 
-int		get_next_line(const int fd, char **line);
+int		get_next_line(const int fd, char **line)
+{
+	char buffer[32];
+	char *temp;
+	int size;
 
-#endif
+	read(fd, buffer, 32);
+	while (ft_strsearch(buffer, -1) == 0)
+	{
+		if (ft_strsearch(buffer, '\n') != 0)
+			//cpy buffer to temp + count
+		else
+			//cpy from position of '\n'
+		//cat temp to line + count
+	}
+	//contains eof
+	//cpy to temp untill eof + count
+	//cat temp to line
+}

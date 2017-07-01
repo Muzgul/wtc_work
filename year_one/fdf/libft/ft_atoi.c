@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/22 15:21:38 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/22 15:21:40 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 13:40:59 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/23 12:34:47 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 32
-# include "libft/libft.h"
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+int		ft_atoi(const char *str)
+{
+	size_t	i;
+	int		result;
 
-#endif
+	result = 0;
+	if (str != NULL)
+	{
+		i = 0;
+		if (str[i] == '-')
+			i++;
+		while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+		{
+			result += str[i] - '0';
+			result *= 10;
+			i++;
+		}
+		result /= 10;
+		if (str[0] == '0')
+			result *= -1;
+	}
+	return (result);
+}

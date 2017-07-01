@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/22 15:21:38 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/22 15:21:40 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/07 15:38:19 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/01 16:21:55 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 32
-# include "libft/libft.h"
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	size_t i;
+	unsigned char c;
+	unsigned char *pd;
+	const unsigned char *ps;
 
-#endif
+	pd = (unsigned char*)dst;
+	ps = (const unsigned char*)src;
+	i = 0;
+	while (i < len)
+	{
+		c = *(ps + i);
+		if (c != *(pd + i))
+			if ((pd + i) != (ps + i))
+				*(pd + i) = c;
+		i++;
+	}
+	return (dst);
+}
