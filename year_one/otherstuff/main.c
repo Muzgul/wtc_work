@@ -9,16 +9,13 @@ size_t	ft_strlcat(char *restrict s1, const char *restrict s2, size_t size);
 
 int main(int argc, char **argv)
 {
-	char *str = " world";
-	char a[12] = "hello";
-	char b[12] = "hello";
-
-	int i = strlcat(a, str, 1);
-	int j = ft_strlcat(b, str, 1);
-	
-	printf("%s\n", b);
-	printf("%i\n", j);
-	printf("%s\n", a);
-	printf("%i\n", i);
+	char s1[4] = "";
+	char s2[4] = "";
+	int r1 = strlcat(s1, "thx to ntoniolo for this test !", 4);
+	int r2 = ft_strlcat(s2, "thx to ntoniolo for this test !", 4);
+	printf("r1 %s\n", s1);
+	printf("r2 %s\n", s2);
+	printf("%i\n", r1);
+	printf("%i\n", r2);
 	return (0);		
 }
