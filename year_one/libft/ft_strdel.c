@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 11:08:10 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/06 13:52:02 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/07/24 17:07:22 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 void	ft_strdel(char **as)
 {
-	ft_memdel((void**)&as);
-	if (*as != NULL)
-		*as = NULL;
-	free(as);
+	ft_memdel((void**)as);
 }

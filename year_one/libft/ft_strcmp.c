@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 13:34:56 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/07/01 16:00:42 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/07/24 14:54:50 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,9 @@ int		ft_strcmp(const char *s1, const char *s2)
 {
 	if (s1[0] == '\0' && s1[0] == s2[0])
 		return (0);
+	if (s1[0] == '\0' && s1[0] != s2[0])
+		return (-1);
+	if (s2[0] == '\0' && s2[0] != s1[0])
+		return (1);
 	return (ft_memcmp(s1, s2, ft_strlen(s1)));
 }

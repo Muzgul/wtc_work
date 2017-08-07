@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 11:52:40 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/07/17 12:56:09 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/08/01 15:13:20 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,7 @@ typedef struct	s_list
 }			t_list;
 
 int		ft_isspace(char c);
-t_list	*ft_lstnew(void const *content, size_t content_size);
-void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
-void	_ftlstdel(t_list **alst, void (*del)(void *, size_t));
-void	ft_lstadd(t_list **alst, t_list *new);
 size_t		ft_strsearch(const char *str, char c);
-char	*ft_array_up(char *ap, size_t size, size_t n);
-size_t		ft_arrlen(const void *arr);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 size_t		ft_findnext(char const *str, char c, size_t start);

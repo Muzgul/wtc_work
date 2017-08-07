@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 17:37:43 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/06/06 13:43:46 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/07/24 17:05:56 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_memdel(void **ap)
 {
-	if (*ap != NULL)
+	if (ap != NULL)
+	{
 		free(*ap);
-	*ap = NULL;
+		*ap = NULL;
+	}
 }
