@@ -1,31 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_lst_to_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 18:20:27 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/01 16:35:07 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/08/10 17:41:44 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/10 18:04:59 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "fdf.h"
 
-char	*ft_strnew(size_t size)
+int		lst_str_len(t_list *begin_lst)
 {
-	size_t	i;
+	t_list	*ptr;
+	int count;
+
+	count = 0;
+	ptr = begin_lst;
+	while (ptr != NULL)
+	{
+		count += ptr->content_size;
+		ptr = ptr->next;
+	}
+	return (count);
+}
+
+char	*ft_lst_to_str(t_list *begin_lst)
+{
+	int		i;
+	t_list	*ptr;
 	char	*str;
 
-	str = (char*)ft_memalloc(size + 1);
+	str = ft_strnew(lst_str_len(begin_lst));
 	if (str == NULL)
 		return (NULL);
-	i = 0;
-	while (i < size)
+	ptr = begin_lst;
+	while (ptr != NULL)
 	{
-		str[i] = '\0';
-		i++;
+		ft_strcat(str, (char*)ptr->content);
+		ptr = ptr->next;
 	}
-	str[i] = '\0';
 	return (str);
 }

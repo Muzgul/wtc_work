@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_lst_item.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 18:20:27 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/01 16:35:07 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/08/10 15:26:44 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/10 18:03:59 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "fdf.h"
 
-char	*ft_strnew(size_t size)
+t_list	*ft_lst_item(void *data, size_t size)
 {
-	size_t	i;
-	char	*str;
+	t_list	*ptr;
 
-	str = (char*)ft_memalloc(size + 1);
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (i < size)
+	ptr = (t_list*)malloc(sizeof(t_list));
+	if (ptr != NULL)
 	{
-		str[i] = '\0';
-		i++;
+		ptr->content = data;
+		ptr->content_size = size;
+		ptr->next = NULL;
 	}
-	str[i] = '\0';
-	return (str);
+	else
+		return (NULL);
+	return (ptr);
 }

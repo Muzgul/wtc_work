@@ -6,11 +6,11 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 11:21:06 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/07/01 15:34:01 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/07/18 16:11:09 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
 size_t	ft_strlen(const char *s)
 {
