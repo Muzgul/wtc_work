@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strsearch.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 17:51:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/10 18:01:47 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/23 12:36:17 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/11 15:58:21 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		FT_FDF_H
-#	define	FT_FDF_H
-#	include "../libft/libft.h"
+#include "../libft/libft.h"
 
-t_list	ft_list_item(void *data, size_t size);
-char	*ft_lst_to_str(t_list *begin_lst);
+size_t		ft_strsearch(const char *str, char c)
+{
+	size_t i;
 
-#endif
+	i = 0;
+	if (str == NULL)
+		return (0);
+	while (str[i] != c && str[i] != '\0')
+		i++;
+	if (str[i] == c)
+		return (i);
+	return (0);
+}

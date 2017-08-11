@@ -6,11 +6,12 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:57:34 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/10 18:18:01 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/08/11 16:00:20 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define BUFF_SIZE 32
+#include "fdf.h"
 
 char	*get_line(const int fd)
 {
@@ -20,15 +21,15 @@ char	*get_line(const int fd)
 	t_list	*lst_ptr;
 
 	read(fd, buff, BUFF_SIZE);
-	while (ft_strsearch(&buff, '\n') != 0 && ft_strsearch(&buff, -1) != 0)
+	while (ft_strsearch((const char *)&buff, '\n') != 0 && ft_strsearch((const char *)&buff, -1) != 0)
 	{
-		lst_ptr = ft_lst_item((void*)buff, ft_strlen(&buff));
+		lst_ptr = ft_lst_item((void*)buff, ft_strlen((const char *)&buff));
 		if (head != NULL)
 			lst_ptr->next = head->next;
 		head = lst_ptr;
 		read(fd, buff, BUFF_SIZE);
 	}
-	lst_ptr = ft_lst_item((void*)buff, ft_strlen(&buff));
+	lst_ptr = ft_lst_item((void*)buff, ft_strlen((const char *)&buff));
 	if (head != NULL)
 		lst_ptr->next = head->next;
 	head = lst_ptr;

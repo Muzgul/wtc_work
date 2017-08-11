@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_item.c                                      :+:      :+:    :+:   */
+/*   ft_array_up.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 15:26:44 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/10 18:03:59 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/29 17:37:22 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/11 14:40:37 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-t_list	*ft_lst_item(void *data, size_t size)
+char	*ft_array_up(char *ap, size_t size, size_t n)
 {
-	t_list	*ptr;
+	size_t	i;
+	char	*new;
 
-	ptr = (t_list*)malloc(sizeof(t_list));
-	if (ptr != NULL)
+	if (ap != NULL && n > 0)
 	{
-		ptr->content = data;
-		ptr->content_size = size;
-		ptr->next = NULL;
+		new = ft_memalloc(size + n);
+		i = 0;
+		while (i < size)
+		{
+			new[i] = ap[i];
+			i++;
+		}
+		ft_memdel((void**)&ap);
 	}
 	else
-		return (NULL);
-	return (ptr);
+		return (ap);
+	return (new);
 }

@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lst_item.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 17:55:11 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/11 15:56:00 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/08/10 15:26:44 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/11 14:37:44 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int		ft_strsearch(const char *str, char c);
-
-int main(int argc, char **argv)
+t_list	*ft_lst_item(void *data, size_t size)
 {
-	printf("%i\n", ft_strsearch(argv[1], '\n'));
-	return (0);
+	t_list	*ptr;
+
+	ptr = (t_list*)malloc(sizeof(t_list));
+	if (ptr != NULL)
+	{
+		ptr->content = data;
+		ptr->content_size = size;
+		ptr->next = NULL;
+	}
+	else
+		return (NULL);
+	return (ptr);
 }

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsearch.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/23 12:36:17 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/01 15:12:38 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/08/11 15:39:23 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/11 15:45:02 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fdf.h"
+#include <fcntl.h>
+#include <stdio.h>
 
-size_t		ft_strsearch(const char *str, char c)
+char	*get_line(const int fd);
+
+int		main()
 {
-	size_t i;
+	int fd = open("some.txt", O_RDONLY);
+	printf("%s\n", get_line(fd));
 
-	i = 0;
-	if (str == NULL)
-		return (0);
-	while (str[i] != c && str[i] != '\0')
-		i++;
-	if (str[i] == c)
-		return (i);
 	return (0);
 }

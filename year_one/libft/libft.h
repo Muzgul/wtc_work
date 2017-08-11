@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 11:52:40 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/01 15:13:20 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/08/11 15:38:45 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct	s_list
+typedef struct		s_list
 {
-	void		*content;
-	size_t		content_size;
+	void			*content;
+	size_t			content_size;
 	struct s_list	*next;
-}			t_list;
+}					t_list;
 
-int		ft_isspace(char c);
-size_t		ft_strsearch(const char *str, char c);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 size_t		ft_findnext(char const *str, char c, size_t start);
@@ -33,7 +31,10 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+int		ft_isspace(char c);
 char	*ft_itoa(int n);
+t_list	*ft_lst_item(void *data, size_t size);
+char	*ft_lst_to_str(t_list *begin_lst);
 void	*ft_memalloc(size_t size);
 void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -61,7 +62,7 @@ int		ft_strequ(char const *s1, char const *s2);
 void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlcat(char *restrict s1, const char *restrict s2, size_t size);
+size_t		ft_strlcat(char *restrict s1, const char *restrict s2, size_t size);
 size_t	ft_strlen(const char *s);
 char	*ft_strmap(char const *s, char (*f)	(char));
 char	*ft_strmapi(char const *s, char (*f)	(unsigned int, char));
@@ -72,8 +73,9 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strnew(size_t size);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
+size_t		ft_strsearch(const char *str, char c);
 int		ft_strspaces(char *s);
-char	**ft_strsplit(char const *s, char c);
+int		word_len(const char *s, char c);
 char	*ft_strstr(const char *big, const char *little);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char *s);

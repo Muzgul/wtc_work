@@ -6,11 +6,11 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:41:44 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/10 18:04:59 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/08/11 15:38:49 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
 int		lst_str_len(t_list *begin_lst)
 {
@@ -29,7 +29,6 @@ int		lst_str_len(t_list *begin_lst)
 
 char	*ft_lst_to_str(t_list *begin_lst)
 {
-	int		i;
 	t_list	*ptr;
 	char	*str;
 
