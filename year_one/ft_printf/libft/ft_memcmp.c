@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 12:10:57 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/09 12:23:32 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t i;
+	unsigned char *p1;
+	unsigned char *p2;
+
+	i = 0;
+	p1 = (unsigned char*)s1;
+	p2 = (unsigned char*)s2;
+	while (i < n)
+	{
+		if (*(p1 + i) != *(p2 + i))
+			return (*(p1 + i) - *(p2 + i));
+		i++;
+	}
+	return (0);
 }

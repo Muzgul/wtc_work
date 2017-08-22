@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_words.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/30 09:39:20 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/10 11:00:46 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+size_t		ft_words(char const *str, char d)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t i;
+	size_t n;
+
+	i = 0;
+	n = 0;
+	while (str[i] != '\0')
+	{
+		while (str[i] != d && str[i] != '\0')
+			i++;
+		n++;
+		if (str[i] != '\0')
+			i++;
+	}
+	return (n);
 }

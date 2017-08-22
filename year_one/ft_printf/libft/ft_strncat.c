@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 13:12:44 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/25 15:54:55 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t i;
+	size_t x;
+
+	i = 0;
+	x = 0;
+	while (s1[i] != '\0')
+		i++;
+	while (s2[x] != '\0' && x < n)
+	{
+		s1[i + x] = s2[x];
+		x++;
+	}
+	s1[i + x] = '\0';
+
+	return (s1);
 }

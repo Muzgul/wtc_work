@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/30 11:37:35 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/10 10:56:17 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+void	ft_putchar(char s)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	write(1, &s, 1);
 }

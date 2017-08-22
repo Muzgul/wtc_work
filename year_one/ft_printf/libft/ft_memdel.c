@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/23 17:37:43 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/24 17:05:56 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+void	ft_memdel(void **ap)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	if (ap != NULL)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

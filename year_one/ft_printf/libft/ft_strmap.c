@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 11:18:14 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/25 14:14:27 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+char	*ft_strmap(char const *s, char (*f)	(char))
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	int		i;
+	char	*str;
+
+	if (s == NULL)
+		return (NULL);
+	str = ft_strnew(ft_strlen(s));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		str[i] = (*f)(s[i]);
+		i++;
+	}
+	return (str);
 }

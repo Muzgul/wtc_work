@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 13:34:01 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/25 15:21:42 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	int		length;
+	char	*str;
+
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	length = ft_strlen(s1) + ft_strlen(s2);
+	str = ft_strnew(length + 1);
+	if (str == NULL)
+		return (NULL);
+	ft_strcpy(str, s1);
+	ft_strcat(str, s2);
+	str[ft_strlen(str)] = '\0';
+	return (str);
 }

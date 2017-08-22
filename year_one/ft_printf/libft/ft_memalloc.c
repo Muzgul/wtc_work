@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/22 14:16:18 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/07 11:23:34 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+void	*ft_memalloc(size_t size)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	void *temp;
+
+	if (size == 0)
+		return (NULL);
+	temp = (void *)malloc(sizeof(void) * size);
+	if (temp == NULL)
+		return (NULL);
+	ft_strclr((char*)temp);
+	return (temp);
 }

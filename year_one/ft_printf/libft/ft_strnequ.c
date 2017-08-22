@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 14:05:29 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/25 14:49:54 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t i;
+
+	i = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (0);
+	while (s1[i] != '\0' && s2[i] != '\0' && i < n)
+	{
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
+	}
+	if ((s1[i] == '\0' && s2[i] != '\0') ||
+		(s1[i] != '\0' && s2[i] == '\0'))
+		return (0);
+	return (1);
 }

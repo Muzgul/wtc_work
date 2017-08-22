@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strspaces.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 13:56:19 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/15 14:22:28 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+int		ft_strspaces(char *s)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	int i;
+	int j;
+
+	j = 0;
+	if (s != NULL)
+	{
+		i = 0;
+		while (s[i] != '\0')
+		{
+			if (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+				j++;
+			i++;
+		}
+	}
+	return (j);
 }

@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 15:12:59 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/10 16:17:46 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+int		ft_isprint(int c)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	if (ft_isalnum(c) != 0)
+		return (1);
+	if (c >= 32 && c <= 39)
+		return (1);
+	if (c >= 40 && c <= 47)
+		return (1);
+	if ((c >= 58 && c <= 63) || c == 64)
+		return (1);
+	if ((c >= 91 && c <= 95) || c == 96)
+		return (1);
+	if (c >= 123 && c <= 126)
+		return (1);
+	return (0);
 }

@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strsearch.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/23 12:36:17 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/11 15:58:21 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "../libft/libft.h"
 
-int		main()
+size_t		ft_strsearch(const char *str, char c)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t i;
+
+	i = 0;
+	if (str == NULL)
+		return (0);
+	while (str[i] != c && str[i] != '\0')
+		i++;
+	if (str[i] == c)
+		return (i);
+	return (0);
 }

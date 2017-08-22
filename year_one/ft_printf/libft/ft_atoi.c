@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 13:40:59 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/28 13:34:20 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+int		ft_atoi(const char *str)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t	i;
+	int		result;
+
+	result = 0;
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-')
+		i++;
+	while (str[i] != '\0' && ft_isdigit(str[i]))
+	{
+		result *= 10;
+		result += str[i] - '0';
+		i++;
+	}
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-')
+		result *= -1;
+	return (result);
 }

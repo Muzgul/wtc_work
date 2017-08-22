@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_findnext.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/03 14:26:18 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/25 15:42:51 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+size_t		ft_findnext(char const *str, char c, size_t start)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t i;
+
+	i = start + 1;
+	while (str[i] && str[i] != '\0' && str[i] != c)
+		i++;
+	if (str[i] != c)
+		return (0);
+	return (i - start);
 }

@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 13:15:49 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/01 15:25:40 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+char	*ft_strchr(const char *s, int c)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t i;
+
+	i = 0;
+	while (s[i] != '\0' && s[i] != c)
+		i++;
+	if (s[i] == c)
+		return ((char*)&s[i]);
+
+	return (NULL);
 }

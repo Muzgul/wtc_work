@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/07 13:28:30 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/23 12:35:37 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+void	ft_bzero(void *s, size_t n)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t			i;
+	unsigned char	*p;
+
+	if (n > 0)
+	{
+		i = 0;
+		p = (unsigned char*)s;
+		while (i < n)
+		{
+			*(p + i) = '\0';
+			i++;
+		}
+	}
 }

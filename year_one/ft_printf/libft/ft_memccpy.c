@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/07 15:33:10 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/09 10:52:38 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t i;
+	unsigned char *pd;
+	const unsigned char *ps;
+
+	pd = (unsigned char*)dst;
+	ps = (const unsigned char*)src;
+	i = 0;
+	while (i < n)
+	{
+		*(pd + i) = *(ps + i);
+		if (*(ps + i) == (unsigned char)c)
+			return ((pd + i + 1));
+		i++;
+	}
+	return (NULL);
 }

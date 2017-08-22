@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 13:21:58 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/17 17:45:05 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+char	*ft_strrchr(const char *s, int c)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t i;
+
+	if (s[0] == '\0')
+		return (NULL);
+	i = ft_strlen(s) - 1;
+	if (i == 0)
+		return ((char *)s);
+	if (c == '\0')
+	{
+		while (s[i + 1] == '\0')
+			i++;
+		return ((char*)&s[i]);
+	}
+	while (i != 0 && s[i] != c)
+		i--;
+	if (s[i] == c)
+		return ((char*)&s[i]);
+	return (NULL);
 }

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 12:05:28 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/10 16:39:05 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t i;
+	const unsigned char *ps;
+
+	i = 0;
+	ps = s;
+	while (i < n)
+	{
+		if (*(ps + i) == (unsigned char)c)
+			return((void*)(s + i));
+		i++;
+	}
+	return (NULL);
 }

@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 13:27:20 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/07/24 14:43:31 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/24 14:51:49 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_printf(const char * restrict format, ...);
+#include "libft.h"
 
-int		main()
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	ft_printf("%s\n%s", "hello", "murray");
+	size_t i;
+
+	if (*little == '\0')
+		return ((char*)big);
+	i = 0;
+	while (*big != '\0' && i < len)
+	{
+		if (ft_memcmp(big, little, ft_strlen(little)) == 0 && (i + ft_strlen(little)) <= len)
+			return ((char*)big);
+		big++;
+		i++;
+	}
+	return (NULL);
 }
