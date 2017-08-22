@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:57:34 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/11 16:00:20 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/08/18 16:52:17 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ char	*get_line(const int fd)
 	t_list	*lst_ptr;
 
 	read(fd, buff, BUFF_SIZE);
-	while (ft_strsearch((const char *)&buff, '\n') != 0 && ft_strsearch((const char *)&buff, -1) != 0)
+	while (ft_strsearch((const char *)&buff, '\n') != 0)
 	{
-		lst_ptr = ft_lst_item((void*)buff, ft_strlen((const char *)&buff));
+		lst_ptr = ft_lst_item((void*)buff, ft_strsearch((const char *)&buff, '\n'));
 		if (head != NULL)
 			lst_ptr->next = head->next;
 		head = lst_ptr;
+		lseek(fd, ft_strsearch((const char *)&buff, '\n'), SEEK_SET);
 		read(fd, buff, BUFF_SIZE);
 	}
 	lst_ptr = ft_lst_item((void*)buff, ft_strlen((const char *)&buff));
