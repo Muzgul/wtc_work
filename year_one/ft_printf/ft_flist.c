@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_flist.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/24 15:23:50 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/08/24 14:48:26 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/24 15:26:50 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 
-int		ft_printf(const char * restrict format, ...);
-
-int		main(int argc, char **argv)
+t_flist		*ft_flist()
 {
-	if (argc > 1)
-	{
-		ft_printf(argv[1], argv[2]);
-		printf("\n");
-		printf(argv[1], argv[2]);
-	}
+	t_flist *head;
+	t_flist *ptr;
+
+	ptr = (t_flist *)malloc(sizeof(t_flist));
+	ptr->f = &ft_s;
+	ptr->c = 's';
+	ptr->next = NULL;
+	head = ptr;
+	return (head);
 }

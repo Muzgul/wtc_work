@@ -6,32 +6,39 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 13:45:38 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/22 16:48:33 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/08/24 15:28:23 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
-#include "libft/libft.h"
+#include "ft_printf.h"
 
 int		ft_printf(const char * restrict format, ...)
 {
-	char	*ptr;
+	char	*str_ptr;
+	t_flist *head;
+	t_flist *lst_ptr;
 	va_list args;
 	va_start(args, format);
 
-	ptr = (char *)format;
-	while (*ptr != '\0')
+	head = ft_flist();
+	str_ptr = (char *)format;
+	while (*str_ptr != '\0')
 	{
-		if (*ptr == '%')
+		if (*str_ptr == '%')
 		{
-			ptr++;
-			if (*ptr == 's')
-				ft_putstr(va_arg(args, char *));
+			str_ptr++;
+			lst_ptr = head;
+			while (lst_ptr != NULL)
+			{
+				if (*str_ptr == lst_ptr->c)
+					lst_ptr->f(args);
+				lst_ptr = lst_ptr->next;
+			}
 		}
 		else
-			ft_putchar(*ptr);
-		ptr++;
+			if (*str_ptr != '\0')
+				ft_putchar(*str_ptr);
+		str_ptr++;
 	}
 	va_end(args);
 	return (0);

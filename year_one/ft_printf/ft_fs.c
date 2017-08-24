@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_fs.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:11:19 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/24 15:23:50 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/08/24 14:44:33 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/24 15:06:43 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 
-int		ft_printf(const char * restrict format, ...);
-
-int		main(int argc, char **argv)
+void	ft_s(va_list args)
 {
-	if (argc > 1)
-	{
-		ft_printf(argv[1], argv[2]);
-		printf("\n");
-		printf(argv[1], argv[2]);
-	}
+	ft_putstr(va_arg(args, char *));
 }
