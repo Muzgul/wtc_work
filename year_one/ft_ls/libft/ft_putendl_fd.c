@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flist.c                                         :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 14:48:26 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/24 15:26:50 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/30 11:44:07 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/03 14:10:06 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-t_flist		*ft_flist()
+void	ft_putendl_fd(char const *s, int fd)
 {
-	t_flist *head;
-	t_flist *ptr;
-
-	ptr = (t_flist *)malloc(sizeof(t_flist));
-	ptr->f = &ft_s;
-	ptr->c = 's';
-	ptr->next = NULL;
-	head = ptr;
-	return (head);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

@@ -6,11 +6,13 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 13:45:38 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/24 15:28:23 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/05 14:57:52 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
+
+//Uses ft_fs and ft_flist
 
 int		ft_printf(const char * restrict format, ...)
 {

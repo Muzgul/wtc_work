@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fs.c                                            :+:      :+:    :+:   */
+/*   ft_strspaces.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 14:44:33 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/29 13:13:29 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 13:56:19 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/15 14:22:28 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_s(va_list args)
+int		ft_strspaces(char *s)
 {
-	ft_putstr(va_arg(args, char *));
-}
+	int i;
+	int j;
 
-void	ft_d(va_list args)
-{
-	ft_putstr(ft_itoa(va_arg(args, int)));
+	j = 0;
+	if (s != NULL)
+	{
+		i = 0;
+		while (s[i] != '\0')
+		{
+			if (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+				j++;
+			i++;
+		}
+	}
+	return (j);
 }

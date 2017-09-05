@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 11:52:40 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/24 14:58:50 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/05 15:01:21 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct		s_list
 {
@@ -23,6 +24,17 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_flist
+{
+	void			(*f)(va_list args);
+	char			c;
+	struct s_flist	*next;
+}					t_flist;
+
+int		ft_printf(const char * restrict format, ...);
+void	ft_s(va_list args);
+void	ft_d(va_list args);
+t_flist	*ft_flist();
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 size_t		ft_findnext(char const *str, char c, size_t start);
