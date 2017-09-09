@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 17:03:47 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/07 17:03:48 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/09 13:52:03 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		new->content = (void*)content;
 		new->content_size = content_size;
 	}
+	new->next = NULL;
 	return (new);
 }

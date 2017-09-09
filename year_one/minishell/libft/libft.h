@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 11:52:40 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/07 14:35:38 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/09 17:22:20 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strnew(size_t size);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
+char	**ft_strsplit(const char *s, char c);
 size_t		ft_strsearch(const char *str, char c);
 int		ft_strspaces(char *s);
 int		word_len(const char *s, char c);
