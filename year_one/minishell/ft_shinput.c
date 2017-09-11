@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 13:26:37 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/11 16:45:17 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/11 17:30:11 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,6 @@ int		ft_get_status(char *user_input)
 
 void	ft_get_input(char **old_input)
 {
-	int		status;
-	char	*line;
-
 	if (*old_input != NULL)
 	{
 		free(*old_input);

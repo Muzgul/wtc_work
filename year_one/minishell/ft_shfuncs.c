@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 16:31:45 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/11 16:41:21 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/11 17:31:15 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_shls(char *user_input)
 {
-	ft_printf("<- LS has been called! ->");
+	if (user_input != NULL)
+		ft_printf("<- LS has been called! ->");
 }

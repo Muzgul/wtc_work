@@ -6,16 +6,16 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 15:11:34 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/11 16:42:39 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/11 17:28:42 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		ft_exec_sh(func_ptr_t *func_ptr, char *user_input)
+void		ft_exec_sh(func_ptr_t func_ptr, char *user_input)
 {
 	if (func_ptr != NULL && user_input != NULL)
-		ft_printf("<- Func %s called! ->", func_ptr->
+		ft_printf("<- Func called! ->");
 }
 
 func_ptr_t	*ft_get_funcs()

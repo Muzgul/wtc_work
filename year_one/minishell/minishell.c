@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 17:14:15 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/11 17:14:20 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/11 17:29:16 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	ft_minishell()
 {
 	int			status;
-	func_ptr_t	*func_ptr;
+	func_ptr_t	func_ptr;
 	char	*user_input;
 
 	user_input = NULL;
-	while ((status = ft_set_status(user_input)) == EXIT_SUCCESS)
+	while ((status = ft_get_status(user_input)) == EXIT_SUCCESS)
 	{
 		func_ptr = ft_input_error(user_input);
 		if (func_ptr != NULL)
