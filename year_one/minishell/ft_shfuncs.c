@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_shfuncs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/07 17:03:47 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/11 14:27:58 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/09/11 16:31:45 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/09/11 16:41:21 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+void	ft_shls(char *user_input)
 {
-	t_list *new;
-
-	new = (t_list*)malloc(sizeof(t_list));
-	if (content == NULL)
-	{
-		new->content = NULL;
-		new->content_size = 0;
-	}
-	else
-	{
-		new->content = (void*)content;
-		new->content_size = content_size;
-	}
-	new->next = NULL;
-	return (new);
+	ft_printf("<- LS has been called! ->");
 }
