@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 15:17:21 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/09 17:25:35 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/12 16:59:05 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*get_next(const char *s, char c)
 	size_t	i;
 
 	i = 0;
+	if (s == NULL || s[0] == '\0')
+		return (NULL);
 	while (*(s + i) == c && *(s + i) != '\0')
 		i++;
 	if (*(s + i) == '\0')
@@ -39,9 +41,10 @@ int		count_words(const char *s, char c)
 	size_t	i;
 
 	i = 0;
-	while (get_next(s, c) != NULL)
+	while (s != NULL && get_next(s, c) != NULL)
 	{
-		s = get_next(s + word_len(s, c), c);
+		s += word_len(s, c);
+		s = get_next(s, c);
 		i++;
 	}
 	return (i);

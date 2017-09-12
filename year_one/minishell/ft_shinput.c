@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 13:26:37 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/11 17:30:11 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/12 16:58:49 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,23 +54,28 @@ int		ft_get_status(char *user_input)
 {
 	int i;
 
-	ft_printf("(=_=)> ");
 	i = 0;
-	while (ft_strcmp((user_input + i), "exit\n") != 0)
-		i++;
-	if (ft_strcmp((user_input + i), "exit\n") == 0)
-		return (1);
-	return (0);
+	if (user_input != NULL && ft_strcmp(user_input, "exit\n") == 0)
+	{
+		ft_printf("[ Process Terminated! ]\n");
+		return (EXIT_FAILURE);
+	}
+	ft_printf("(=_=)> ");
+	return (EXIT_SUCCESS);
 }
 
-void	ft_get_input(char **old_input)
+char	*ft_get_input(char *old_input)
 {
-	if (*old_input != NULL)
+	if (old_input != NULL)
 	{
-		free(*old_input);
-		*old_input = NULL;
+		free(old_input);
+		old_input = NULL;
 	}
-	*old_input = ft_get_line();
-	if (*old_input == NULL)
+	old_input = ft_get_line();
+	if (old_input == NULL)
+	{
 		ft_printf("[ Error reading input! ]\n");
+		return (NULL);
+	}
+	return (old_input);
 }

@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:41:44 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/11 17:32:48 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/12 16:36:05 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		lst_str_len(t_list *begin_lst)
 	count = 0;
 	while (begin_lst != NULL)
 	{
+		if (count == 0)
+			count++;
 		count += begin_lst->content_size;
 		begin_lst = begin_lst->next;
 	}
@@ -44,7 +46,7 @@ char	*ft_lst_to_str(t_list *begin_lst)
 	while (ptr != NULL)
 	{
 		tmp_str = (char *)ptr->content;
-	while (i < ptr->content_size)
+		while (i < ptr->content_size)
 		{
 			str[j] = tmp_str[i];
 			i++;

@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 14:49:24 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/11 17:26:45 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/12 16:52:58 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ func_ptr_t	ft_input_error(char *user_input)
 	int			i;
 	int			j;
 
+	if (user_input == NULL)
+		return (NULL);
 	split_input = ft_strsplit(user_input, ' ');
 	func_arr = ft_get_funcs();
 	cmnd_arr = ft_get_cmnds();
