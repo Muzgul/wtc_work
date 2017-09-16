@@ -22,6 +22,7 @@ void	ft_minishell()
 	status = ft_get_status(user_input);
 	while (status == EXIT_SUCCESS)
 	{
+		ft_output("");
 		func_ptr = ft_input_error(user_input);
 		if (func_ptr != NULL)
 			ft_exec_sh(func_ptr, user_input);

@@ -37,7 +37,7 @@ func_ptr_t	ft_input_error(char *user_input)
 				return (func_arr[j]);
 			else
 			{
-				ft_printf("[ Command %s not found! ]\n", split_input[i]);
+				ft_output("[ Command not found! ]\n");
 				return (NULL);
 			}
 		}

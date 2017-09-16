@@ -15,5 +15,5 @@
 void	ft_shls(char *user_input)
 {
 	if (user_input != NULL)
-		ft_printf("<- LS has been called! ->");
+		ft_output("<- LS has been called! ->");
 }

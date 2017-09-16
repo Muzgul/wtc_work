@@ -60,7 +60,6 @@ int		ft_get_status(char *user_input)
 		ft_printf("[ Process Terminated! ]\n");
 		return (EXIT_FAILURE);
 	}
-	ft_printf("(=_=)> ");
 	return (EXIT_SUCCESS);
 }
 
@@ -74,7 +73,7 @@ char	*ft_get_input(char *old_input)
 	old_input = ft_get_line();
 	if (old_input == NULL)
 	{
-		ft_printf("[ Error reading input! ]\n");
+		ft_output("[ Error reading input! ]\n");
 		return (NULL);
 	}
 	return (old_input);

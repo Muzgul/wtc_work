@@ -17,6 +17,7 @@
 typedef	void (*func_ptr_t)(char *user_input);
 
 void		ft_minishell();
+void		ft_output(char *str);
 func_ptr_t	ft_input_error(char *user_input);
 void		ft_exec_sh(func_ptr_t func_ptr, char *user_input);
 func_ptr_t	*ft_get_funcs();

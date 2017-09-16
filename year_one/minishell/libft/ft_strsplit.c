@@ -43,6 +43,15 @@ int		count_words(const char *s, char c)
 	i = 0;
 	while (s != NULL && get_next(s, c) != NULL)
 	{
+		if (s == NULL)
+			return (i);
+		if (word_len(s, c) == (int)ft_strlen(s))
+		{
+			if (ft_strlen(s) > 0)
+				return (i + 1);
+			else
+				return (i);
+		}
 		s += word_len(s, c);
 		s = get_next(s, c);
 		i++;

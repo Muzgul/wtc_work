@@ -12,10 +12,15 @@
 
 #include "minishell.h"
 
+void		ft_output(char *str)
+{
+	ft_printf("%s(=_=)> ", str);
+}
+
 void		ft_exec_sh(func_ptr_t func_ptr, char *user_input)
 {
 	if (func_ptr != NULL && user_input != NULL)
-		ft_printf("<- Func called! ->");
+		ft_output("<- Func called! ->");
 }
 
 func_ptr_t	*ft_get_funcs()
