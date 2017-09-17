@@ -23,6 +23,8 @@ func_ptr_t	ft_input_error(char *user_input)
 	if (user_input == NULL)
 		return (NULL);
 	split_input = ft_strsplit(user_input, ' ');
+	if (split_input == NULL)
+		return (NULL);
 	func_arr = ft_get_funcs();
 	cmnd_arr = ft_get_cmnds();
 	i = 0;
