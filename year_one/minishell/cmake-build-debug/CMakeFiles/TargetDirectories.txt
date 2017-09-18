@@ -1,0 +1,3 @@
+/goinfre/mmacdona/Documents/wtc_work/year_one/minishell/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/goinfre/mmacdona/Documents/wtc_work/year_one/minishell/cmake-build-debug/CMakeFiles/edit_cache.dir
+/goinfre/mmacdona/Documents/wtc_work/year_one/minishell/cmake-build-debug/CMakeFiles/minishell.dir
