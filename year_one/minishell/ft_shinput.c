@@ -34,7 +34,7 @@ char	*ft_get_line()
 			str[str_len++] = c;
 		else
 		{
-			lst_ptr = ft_lstnew((void*)str, 32);
+			lst_ptr = ft_lstnew((void*)str, ft_strlen(str));
 			if (lst_ptr == NULL)
 				return (NULL);
 			ft_lstadd(&head, lst_ptr);
@@ -46,7 +46,7 @@ char	*ft_get_line()
 		{
 			if (str_len > 0)
 			{
-				lst_ptr = ft_lstnew((void *)str, 32);
+				lst_ptr = ft_lstnew((void *)str, ft_strlen(str));
 				if (lst_ptr == NULL)
 					return (NULL);
 				ft_lstadd(&head, lst_ptr);
@@ -56,7 +56,7 @@ char	*ft_get_line()
 	}
 	if (str_len > 0)
 	{
-		lst_ptr = ft_lstnew((void *)str, 32);
+		lst_ptr = ft_lstnew((void *)str, ft_strlen(str));
 		if (lst_ptr == NULL)
 			return (NULL);
 		ft_lstadd(&head, lst_ptr);
@@ -81,6 +81,7 @@ int		ft_get_status(char *user_input)
 
 char	*ft_get_input(char *old_input)
 {
+    ft_output("");
 	if (old_input != NULL)
 		free(old_input);
 	old_input = ft_get_line();

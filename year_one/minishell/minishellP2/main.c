@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_shfuncs.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/11 16:31:45 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/11 17:31:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/09/19 15:42:49 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/09/19 15:45:49 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_shls(char *user_input)
+int		main(int argc, char **argv, char **envp)
 {
-	if (user_input != NULL)
-		ft_printf("<- LS has been called! ->\n");
+	char	*input;
+	int		status;
+
+	input = NULL;
+	status = EXIT_SUCCESS;
+	while (status)
+	{
+		input = ft_prompt();
+		if (input != NULL)
+			status = ft_execute(input, envp);
+		free(input);
+	}
+	return (0);
 }

@@ -19,14 +19,15 @@ void	ft_minishell()
 	char	*user_input;
 
 	user_input = NULL;
+    func_ptr = NULL;
 	status = ft_get_status(user_input);
-	while (status == EXIT_SUCCESS)
-	{
-		ft_output("");
-		func_ptr = ft_input_error(user_input);
+    while (status == EXIT_SUCCESS)
+    {
+        if (user_input != NULL)
+		    func_ptr = ft_input_error(user_input);
 		if (func_ptr != NULL)
 			ft_exec_sh(func_ptr, user_input);
 		user_input = ft_get_input(user_input);
 		status = ft_get_status(user_input);
-	}
+    }
 }

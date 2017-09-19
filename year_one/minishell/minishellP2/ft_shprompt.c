@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_shfuncs.c                                       :+:      :+:    :+:   */
+/*   ft_shprompt.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/11 16:31:45 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/11 17:31:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/09/19 15:46:16 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/09/19 15:50:03 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "minishell.c"
 
-void	ft_shls(char *user_input)
+char *ft_prompt()
 {
-	if (user_input != NULL)
-		ft_printf("<- LS has been called! ->\n");
+	char *input;
+
+	ft_printf("uoykcuf:> ");
+	input = ft_getline();
+	return (input);
 }
+
+//Add get line

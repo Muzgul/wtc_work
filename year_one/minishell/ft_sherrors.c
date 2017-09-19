@@ -39,7 +39,7 @@ func_ptr_t	ft_input_error(char *user_input)
 				return (func_arr[j]);
 			else
 			{
-				ft_output("[ Command not found! ]\n");
+				ft_printf("zsh: command not found: %s\n", user_input);
 				return (NULL);
 			}
 		}

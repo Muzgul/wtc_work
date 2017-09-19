@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_shfuncs.c                                       :+:      :+:    :+:   */
+/*   ft_shexec.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/11 16:31:45 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/11 17:31:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/09/19 15:50:12 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/09/19 15:56:36 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_shls(char *user_input)
+int		ft_execute(char *input, char **envp)
 {
-	if (user_input != NULL)
-		ft_printf("<- LS has been called! ->\n");
+	int i;
+
+	if (ft_strcmp(input, "exit\n") == 0)
+		return (EXIT_FAILURE);
+	while (i < FUNC_COUNT)
+	{
+		if (ft_strcmp(input, fname_lst[i]) == 0)
+			return (*fptr_lst)(input);
+		i++;
+	}
+	//Else run the execve command
+	return (EXIT_SUCCESS);
 }
