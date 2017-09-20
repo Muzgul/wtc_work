@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 15:17:21 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/12 16:59:05 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/20 17:38:07 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ int		word_len(const char *s, char c)
 {
 	size_t	i;
 
+	i = 0;
+	while (*(s + i) == c && *(s + i) != '\0')
+		i++;
 	i = 0;
 	while (*(s + i) != c && *(s + i) != '\0')
 		i++;
@@ -69,7 +72,7 @@ char	**ft_strsplit(const char *s, char c)
 	i = count_words(s, c);
 	if (i == 0)
 		return (NULL);
-	str = (char**)malloc(sizeof(char*)*i);
+	str = (char**)malloc(sizeof(char*)*i + 1);
 	j = 0;
 	while (j < i)
 	{
@@ -77,9 +80,12 @@ char	**ft_strsplit(const char *s, char c)
 		if (temp == NULL)
 			return (NULL);
 		str[j] = ft_strnew(word_len(temp, c));
-		ft_strcpy(str[j], temp);
-		s += word_len(s, c);
+		ft_strncpy(str[j], temp, word_len(temp, c));
+		while (s[0] == c && s[0] != '\0')
+			s++;
+		s += word_len(temp, c);
 		j++;
 	}
+	str[j] = NULL;
 	return (str);
 }

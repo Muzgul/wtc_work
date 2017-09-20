@@ -14,19 +14,50 @@
 
 int		ft_execute(char *input, char **envp)
 {
-	int i;
+	char 	**split_input;
+	int 	i;
 
 	if (ft_strcmp(input, "exit\n") == 0)
 		return (EXIT_FAILURE);
 	i = 0;
-	while (i < FUNC_COUNT)
+	split_input = ft_strsplit(input, ' ');
+	if (split_input == NULL)
+    {
+        if (ft_strlen(input) > 1)
+            ft_printf("[ Command not found! ]\n");
+        return (EXIT_SUCCESS);
+    }
+    while (i < FUNC_COUNT)
 	{
-		if (ft_strcmp(input, fname_lst[i]) == 0)
+		if (ft_strcmp(split_input[0], fname_lst[i]) == 0)
 			return (fptr_lst[i])(input);
 		i++;
 	}
-	if (*envp != NULL)
-		ft_printf("[ Environ received: %s ]\n", envp[0]);
-	//Else run the execve command
+    return (ft_execve(split_input, envp));
+}
+
+int		ft_execve(char **split_input, char **envp)
+{
+	pid_t   pid;
+    char    *str;
+    char    *str_ptr;
+
+    str = (char *)malloc(sizeof(char) * (5 + ft_strlen(split_input[0])));
+    str = "/bin/";
+    str_ptr = split_input[0];
+    split_input[0] = ft_strjoin(str, split_input[0]);
+    pid = fork();
+	if (pid == 0)
+	{
+        //was if
+		if (execve(split_input[0], split_input, envp) == -1)
+			ft_printf("[ Unknown command: %s ]\n", str_ptr);
+        free(str_ptr);
+        exit(0);
+    }
+	if (pid > 0)
+    {
+		wait(NULL);
+	}
 	return (EXIT_SUCCESS);
 }
