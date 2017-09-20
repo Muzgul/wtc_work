@@ -19,11 +19,11 @@ typedef	int (*func_ptr_t)(char *user_input);
 
 //base func definitions
 
-int		ft_shls(char *user_input);
+int		ft_shecho(char *user_input);
 
 //Static variable declerations
-static char fname_lst[1][4] = {"ls"};
-static func_ptr_t fptr_lst[1] = {&ft_shls};
+static char fname_lst[1][4] = {"echo"};
+static func_ptr_t fptr_lst[1] = {&ft_shecho};
 
 
 char	*ft_prompt();

@@ -12,9 +12,9 @@
 
 #include "minishell.h"
 
-int	ft_shls(char *user_input)
+int	ft_shecho(char *user_input)
 {
 	if (user_input != NULL)
-		ft_printf("<- LS has been called! ->\n");
+		ft_printf("<- echo has been called! ->\n");
 	return (0);
 }

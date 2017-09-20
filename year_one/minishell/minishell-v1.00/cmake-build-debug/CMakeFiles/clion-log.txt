@@ -1,0 +1,16 @@
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /goinfre/mmacdona/Documents/wtc_work/year_one/minishell
+-- Configuring done
+CMake Error at CMakeLists.txt:80 (add_executable):
+  Cannot find source file:
+
+    libft/ft_atoi.c
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .m .M .mm .h .hh .h++ .hm .hpp
+  .hxx .in .txx
+
+
+CMake Error: CMake can not determine linker language for target: minishell
+CMake Error: Cannot determine link language for target "minishell".
+-- Generating done
+-- Build files have been written to: /goinfre/mmacdona/Documents/wtc_work/year_one/minishell/cmake-build-debug
+Unable to determine product file path for target minishell (Debug). Running and debugging will be unavailable.
