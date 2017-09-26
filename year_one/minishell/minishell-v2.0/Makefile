@@ -6,13 +6,13 @@
 #    By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/11 17:11:31 by mmacdona          #+#    #+#              #
-#    Updated: 2017/09/20 16:09:53 by mmacdona         ###   ########.fr        #
+#    Updated: 2017/09/26 15:44:20 by mmacdona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
-SRC = main.c ft_shfuncs.c ft_shexec.c ft_shprompt.c 
-OBJ = main.o ft_shfuncs.o ft_shexec.o ft_shprompt.o
+SRC = main.c ft_direct.c ft_shfuncs.c ft_shexec.c ft_shprompt.c 
+OBJ = main.o ft_direct.o ft_shfuncs.o ft_shexec.o ft_shprompt.o
 FLAGS = gcc -Wall -Werror -Wextra
 
 $(OBJ): $(SRC)

@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 15:50:12 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/19 15:56:36 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/26 17:14:37 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int		ft_execute(char *input, char **envp)
 	int 	i;
 
 	if (ft_strcmp(input, "exit\n") == 0)
+	{	
+		ft_printf("[ Process terminated! ]\n");
 		return (EXIT_FAILURE);
+	}
 	i = 0;
 	split_input = ft_strsplit(input, ' ');
 	if (split_input == NULL)
@@ -42,17 +45,21 @@ int		ft_execve(char **split_input, char **envp)
     char    *str;
     char    *str_ptr;
 
-    str = (char *)malloc(sizeof(char) * (5 + ft_strlen(split_input[0])));
-    str = "/bin/";
-    str_ptr = split_input[0];
-    split_input[0] = ft_strjoin(str, split_input[0]);
-    pid = fork();
+    if (!(str_ptr = ft_finddir(split_input[0], envp)))
+	{
+		ft_printf("[ Unknown command: %s ]\n", split_input[0]);
+		return (EXIT_SUCCESS);
+	}
+	str_ptr = ft_strjoin(str_ptr, "/");
+    str = ft_strjoin(str_ptr, split_input[0]);
+    free(split_input[0]);
+	split_input[0] = str;
+	pid = fork();
 	if (pid == 0)
 	{
-        //was if
-		if (execve(split_input[0], split_input, envp) == -1)
-			ft_printf("[ Unknown command: %s ]\n", str_ptr);
-        free(str_ptr);
+        if (execve(split_input[0], split_input, envp) == -1)
+			ft_printf("[ Unknown command: %s ]\n");//, str_ptr);
+        //free(str_ptr);
         exit(0);
     }
 	if (pid > 0)
