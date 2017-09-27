@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_lst_item.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/08/10 15:26:44 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/11 14:37:44 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+t_list	*ft_lst_item(void *data, size_t size)
 {
-	size_t i;
-	size_t x;
+	t_list	*ptr;
 
-	i = 0;
-	x = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[x] != '\0')
+	ptr = (t_list*)malloc(sizeof(t_list));
+	if (ptr != NULL)
 	{
-		s1[i + x] = s2[x];
-		x++;
+		ptr->content = data;
+		ptr->content_size = size;
+		ptr->next = NULL;
 	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	else
+		return (NULL);
+	return (ptr);
 }

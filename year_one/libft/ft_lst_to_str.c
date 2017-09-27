@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:41:44 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/08/11 15:38:49 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/12 16:36:05 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,48 @@
 
 int		lst_str_len(t_list *begin_lst)
 {
-	t_list	*ptr;
 	int count;
 
 	count = 0;
-	ptr = begin_lst;
-	while (ptr != NULL)
+	while (begin_lst != NULL)
 	{
-		count += ptr->content_size;
-		ptr = ptr->next;
+		if (count == 0)
+			count++;
+		count += begin_lst->content_size;
+		begin_lst = begin_lst->next;
 	}
 	return (count);
 }
 
 char	*ft_lst_to_str(t_list *begin_lst)
 {
-	t_list	*ptr;
+	int		count;
 	char	*str;
+	char	*tmp_str;
+	size_t	i;
+	size_t	j;
+	t_list	*ptr;
 
-	str = ft_strnew(lst_str_len(begin_lst));
-	if (str == NULL)
+	if (begin_lst == NULL)
 		return (NULL);
+	count = lst_str_len(begin_lst);
+	str = ft_strnew(count);
 	ptr = begin_lst;
+	i = 0;
+	j = 0;
 	while (ptr != NULL)
 	{
-		ft_strcat(str, (char*)ptr->content);
+		tmp_str = (char *)ptr->content;
+		while (i < ptr->content_size)
+		{
+			str[j] = tmp_str[i];
+			i++;
+			j++;
+		}
+		if (ptr->next == NULL)
+			return (str);
 		ptr = ptr->next;
+		i = 0;
 	}
 	return (str);
 }

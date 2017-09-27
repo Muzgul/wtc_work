@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/09/07 17:03:47 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/09/27 12:17:17 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	size_t i;
-	size_t x;
+	t_list *new;
 
-	i = 0;
-	x = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[x] != '\0')
+	new = (t_list*)malloc(sizeof(t_list));
+	if (content == NULL)
 	{
-		s1[i + x] = s2[x];
-		x++;
+		new->content = NULL;
+		new->content_size = 0;
 	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	else
+	{
+		new->content = ft_memalloc(content_size);
+		new->content = ft_memcpy(new->content, (void*)content, content_size);
+		new->content_size = content_size;
+	}
+	new->next = NULL;
+	return (new);
 }

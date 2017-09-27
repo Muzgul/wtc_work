@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strsearch.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/23 12:36:17 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/11 15:58:21 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+size_t		ft_strsearch(const char *str, char c)
 {
 	size_t i;
-	size_t x;
 
 	i = 0;
-	x = 0;
-	while (s1[i] != '\0')
+	if (str == NULL)
+		return (0);
+	while (str[i] != c && str[i] != '\0')
 		i++;
-	while (s2[x] != '\0')
-	{
-		s1[i + x] = s2[x];
-		x++;
-	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	if (str[i] == c)
+		return (i);
+	return (0);
 }

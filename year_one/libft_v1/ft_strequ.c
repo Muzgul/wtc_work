@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 13:10:21 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/08/01 10:48:01 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	size_t i;
-	size_t x;
+	int i;
 
 	i = 0;
-	x = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[x] != '\0')
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		s1[i + x] = s2[x];
-		x++;
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
 	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	if ((s1[i] == '\0' && s2[i] != '\0') ||
+		(s1[i] != '\0' && s2[i] == '\0'))
+		return (0);
+	return (1);
 }

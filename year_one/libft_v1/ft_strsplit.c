@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 15:17:21 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/27 16:23:31 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/08/11 14:06:18 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,11 @@
 int		word_len(const char *s, char c)
 {
 	size_t	i;
-	size_t	x;
 
 	i = 0;
-	x = 0;
-	while (*(s + i) == c && *(s + i) != '\0')
-		i++;
 	while (*(s + i) != c && *(s + i) != '\0')
-	{
 		i++;
-		x++;
-	}
-	return (x);
+	return (i);
 }
 
 char	*get_next(const char *s, char c)
@@ -34,8 +27,6 @@ char	*get_next(const char *s, char c)
 	size_t	i;
 
 	i = 0;
-	if (s == NULL || word_len(s, c) == 0)
-		return (NULL);
 	while (*(s + i) == c && *(s + i) != '\0')
 		i++;
 	if (*(s + i) == '\0')
@@ -48,19 +39,9 @@ int		count_words(const char *s, char c)
 	size_t	i;
 
 	i = 0;
-	while (s != NULL && get_next(s, c) != NULL)
+	while (get_next(s, c) != NULL)
 	{
-		if (s == NULL)
-			return (i);
-		if (word_len(s, c) == (int)ft_strlen(s))
-		{
-			if (ft_strlen(s) > 0)
-				return (i + 1);
-			else
-				return (i);
-		}
-		s += word_len(s, c);
-		s = get_next(s, c);
+		s = get_next(s + word_len(s, c), c);
 		i++;
 	}
 	return (i);
@@ -73,34 +54,20 @@ char	**ft_strsplit(const char *s, char c)
 	size_t	i;
 	size_t	j;
 
-	if (s == NULL)
-		return (NULL);
-	while (s[0] == c || s[0] == '\0')
-	{
-		if (s[0] == '\0')
-		{
-			str = (char**)malloc(sizeof(char*));
-			*str = NULL;	
-			return (str);
-		}
-		s++;
-	}
 	i = count_words(s, c);
-	str = (char**)malloc(sizeof(char*)*i + 1);
-	if (str == NULL)
+	if (i == 0)
 		return (NULL);
+	str = (char**)malloc(sizeof(char*)*i);
 	j = 0;
-	temp = get_next(s, c);
-	while (j < i && temp != NULL)
+	while (j < i)
 	{
+		temp = get_next(s, c);
+		if (temp == NULL)
+			return (NULL);
 		str[j] = ft_strnew(word_len(temp, c));
-		ft_strncpy(str[j], temp, word_len(temp, c));
-		temp = get_next(temp, c);
-		temp += word_len(temp, c);
-		while (temp[0] == c && temp[0] != '\0')
-			temp++;
+		ft_strcpy(str[j], temp);
+		s += word_len(s, c);
 		j++;
 	}
-	str[j] = NULL;
 	return (str);
 }

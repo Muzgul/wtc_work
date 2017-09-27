@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 12:27:24 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/25 15:55:32 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strdup(const char *s1)
 {
-	size_t i;
-	size_t x;
+	char	*str;
+	size_t	i;
 
+	str = ft_strnew(ft_strlen(s1));
+	if (str == NULL)
+		return (NULL);
 	i = 0;
-	x = 0;
 	while (s1[i] != '\0')
-		i++;
-	while (s2[x] != '\0')
 	{
-		s1[i + x] = s2[x];
-		x++;
+		str[i] = s1[i];
+		i++;
 	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	return (str);
 }

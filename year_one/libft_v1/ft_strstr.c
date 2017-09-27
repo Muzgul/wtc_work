@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 13:23:25 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/22 15:37:04 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strstr(const char *big, const char *little)
 {
-	size_t i;
-	size_t x;
-
-	i = 0;
-	x = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[x] != '\0')
+	if (*little == '\0')
+		return ((char*)big);
+	while (*big != '\0')
 	{
-		s1[i + x] = s2[x];
-		x++;
+		if (ft_memcmp(big, little, ft_strlen(little)) == 0)
+			return ((char*)big);
+		big++;
 	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	return (NULL);
 }

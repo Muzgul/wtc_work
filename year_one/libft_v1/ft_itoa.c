@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 11:16:59 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/27 12:14:15 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/08/11 15:35:50 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ char	*min_max_str(int n)
 
 	if (n == MAX)
 	{
-		str = ft_strnew(ft_strlen("2147483647"));
-		str = ft_strcpy(str, "2147483647");
+		str = ft_strnew(10);
+		str = "2147483647";
 		return (str);
 	}
 	if (n == MIN)
 	{
-		str = ft_strnew(ft_strlen("-2147483648"));
-		str = ft_strcpy(str, "-2147483648");
+		str = ft_strnew(12);
+		str = "-2147483648\0";
 		return (str);
 	}
 	return (NULL);

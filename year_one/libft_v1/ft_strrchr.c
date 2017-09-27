@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 13:21:58 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/17 17:45:05 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strrchr(const char *s, int c)
 {
 	size_t i;
-	size_t x;
 
-	i = 0;
-	x = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[x] != '\0')
+	if (s[0] == '\0')
+		return (NULL);
+	i = ft_strlen(s) - 1;
+	if (i == 0)
+		return ((char *)s);
+	if (c == '\0')
 	{
-		s1[i + x] = s2[x];
-		x++;
+		while (s[i + 1] == '\0')
+			i++;
+		return ((char*)&s[i]);
 	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	while (i != 0 && s[i] != c)
+		i--;
+	if (s[i] == c)
+		return ((char*)&s[i]);
+	return (NULL);
 }

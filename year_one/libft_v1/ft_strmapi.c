@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/24 14:05:50 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/25 14:18:02 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strmapi(char const *s, char (*f)	(unsigned int, char))
 {
-	size_t i;
-	size_t x;
+	unsigned int	i;
+	char			*str;
 
+	if (s == NULL)
+		return (NULL);
+	str = ft_strnew(ft_strlen(s));
+	if (str == NULL)
+		return (NULL);
 	i = 0;
-	x = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[x] != '\0')
+	while (s[i] != '\0')
 	{
-		s1[i + x] = s2[x];
-		x++;
+		str[i] = (*f)(i, s[i]);
+		i++;
 	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	return (str);
 }

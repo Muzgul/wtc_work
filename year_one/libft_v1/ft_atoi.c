@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/09 13:40:59 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/28 13:34:20 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+int		ft_atoi(const char *str)
 {
-	size_t i;
-	size_t x;
+	size_t	i;
+	int		result;
 
+	result = 0;
 	i = 0;
-	x = 0;
-	while (s1[i] != '\0')
+	while (ft_isspace(str[i]))
 		i++;
-	while (s2[x] != '\0')
+	if (str[i] == '-')
+		i++;
+	while (str[i] != '\0' && ft_isdigit(str[i]))
 	{
-		s1[i + x] = s2[x];
-		x++;
+		result *= 10;
+		result += str[i] - '0';
+		i++;
 	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-')
+		result *= -1;
+	return (result);
 }

@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_findnext.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/03 14:26:18 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/25 15:42:51 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+size_t		ft_findnext(char const *str, char c, size_t start)
 {
 	size_t i;
-	size_t x;
 
-	i = 0;
-	x = 0;
-	while (s1[i] != '\0')
+	i = start + 1;
+	while (str[i] && str[i] != '\0' && str[i] != c)
 		i++;
-	while (s2[x] != '\0')
-	{
-		s1[i + x] = s2[x];
-		x++;
-	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	if (str[i] != c)
+		return (0);
+	return (i - start);
 }

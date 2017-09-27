@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_words.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/05/30 09:39:20 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/06/10 11:00:46 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+size_t		ft_words(char const *str, char d)
 {
 	size_t i;
-	size_t x;
+	size_t n;
 
 	i = 0;
-	x = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[x] != '\0')
+	n = 0;
+	while (str[i] != '\0')
 	{
-		s1[i + x] = s2[x];
-		x++;
+		while (str[i] != d && str[i] != '\0')
+			i++;
+		n++;
+		if (str[i] != '\0')
+			i++;
 	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	return (n);
 }

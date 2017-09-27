@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:05:52 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/20 16:12:15 by mmacdona         ###   ########.fr       */
+/*   Created: 2017/06/07 15:38:19 by mmacdona          #+#    #+#             */
+/*   Updated: 2017/07/17 11:49:31 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t i;
-	size_t x;
+	unsigned char c;
+	unsigned char *pd;
+	const unsigned char *ps;
 
-	i = 0;
-	x = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[x] != '\0')
+	pd = (unsigned char*)dst;
+	ps = (const unsigned char*)src;
+	if (ps < pd)
 	{
-		s1[i + x] = s2[x];
-		x++;
+		i = len - 1;
+		len = -1;
 	}
-	s1[i + x] = '\0';
-
-	return (s1);
+	else
+		i = 0;
+	while (i != len)
+	{
+		c = *(ps + i);
+		if (c != *(pd + i))
+			*(pd + i) = c;
+		if (ps < pd)
+			i--;
+		else
+			i++;
+	}
+	return (dst);
 }
