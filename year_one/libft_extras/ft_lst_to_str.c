@@ -6,13 +6,13 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:41:44 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/12 16:36:05 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/28 17:41:14 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		lst_str_len(t_list *begin_lst)
+static int	lst_str_len(t_list *begin_lst)
 {
 	int count;
 
@@ -27,7 +27,7 @@ int		lst_str_len(t_list *begin_lst)
 	return (count);
 }
 
-char	*ft_lst_to_str(t_list *begin_lst)
+char		*ft_lst_to_str(t_list *begin_lst)
 {
 	int		count;
 	char	*str;

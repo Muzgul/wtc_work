@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 11:16:59 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/27 12:14:15 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/28 18:01:06 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #define MIN (-2147483648)
 #define MAX 2147483647
 
-int		count_num(int n)
+static int	count_num(int n)
 {
 	int count;
 
@@ -28,7 +28,7 @@ int		count_num(int n)
 	return (count);
 }
 
-char	*make_string(int n)
+static char	*make_string(int n)
 {
 	int		count;
 	int		i;
@@ -52,7 +52,7 @@ char	*make_string(int n)
 	return (temp);
 }
 
-char	*min_max_str(int n)
+static char	*min_max_str(int n)
 {
 	char *str;
 
@@ -77,15 +77,13 @@ char	*ft_itoa(int n)
 	char	*str;
 	int		neg;
 
-	neg = 0;
-	if (n < 0)
-		neg = 1;
+	neg = n;
 	if (min_max_str(n) != NULL)
 		return (min_max_str(n));
 	str = make_string(n);
 	if (str == NULL)
 		return (NULL);
-	if (neg == 1)
+	if (neg < 0)
 		n *= -1;
 	if (n == 0)
 		return (str);
@@ -96,7 +94,7 @@ char	*ft_itoa(int n)
 		n /= 10;
 		i--;
 	}
-	if (neg == 1)
+	if (neg < 0)
 		str[0] = '-';
 	return (str);
 }

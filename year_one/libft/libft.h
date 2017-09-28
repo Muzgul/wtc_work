@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 17:16:48 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/27 12:22:15 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/28 17:49:31 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ typedef struct		s_flist
 }					t_flist;
 
 int			ft_printf(const char * restrict format, ...);
-void		ft_s(va_list args);
-void		ft_d(va_list args);
 t_flist		*ft_flist();
 int			ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t n);
@@ -89,18 +87,11 @@ char		*ft_strrchr(const char *s, int c);
 char		**ft_strsplit(const char *s, char c);
 size_t		ft_strsearch(const char *str, char c);
 int			ft_strspaces(char *s);
-int			word_len(const char *s, char c);
 char		*ft_strstr(const char *big, const char *little);
 char		*ft_strsub(char const *s, unsigned int start, size_t len);
 char		*ft_strtrim(char *s);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 size_t		ft_words(char const *str, char d);
-int			count_num(int n);
-char		*make_string(int n);
-char		*min_max_str(int n);
-int			lst_str_len(t_list *begin_lst);
-char		*get_next(const char *s, char c);
-int			count_words(const char *s, char c);
 
 #endif

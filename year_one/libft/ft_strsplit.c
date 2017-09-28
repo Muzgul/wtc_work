@@ -6,13 +6,13 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 15:17:21 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/09/27 16:23:31 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/28 17:41:48 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 
-int		word_len(const char *s, char c)
+static int	word_len(const char *s, char c)
 {
 	size_t	i;
 	size_t	x;
@@ -29,7 +29,7 @@ int		word_len(const char *s, char c)
 	return (x);
 }
 
-char	*get_next(const char *s, char c)
+static char	*get_next(const char *s, char c)
 {
 	size_t	i;
 
@@ -43,7 +43,7 @@ char	*get_next(const char *s, char c)
 	return ((char*)(s + i));
 }
 
-int		count_words(const char *s, char c)
+static int	count_words(const char *s, char c)
 {
 	size_t	i;
 
