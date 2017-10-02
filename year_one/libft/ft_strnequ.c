@@ -6,7 +6,7 @@
 /*   By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 14:05:29 by mmacdona          #+#    #+#             */
-/*   Updated: 2017/07/25 14:49:54 by mmacdona         ###   ########.fr       */
+/*   Updated: 2017/09/28 16:54:02 by mmacdona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n)
 	i = 0;
 	if (s1 == NULL || s2 == NULL)
 		return (0);
+	if (n == 0)
+		return (1);
 	while (s1[i] != '\0' && s2[i] != '\0' && i < n)
 	{
 		if (s1[i] != s2[i])
