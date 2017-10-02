@@ -1,0 +1,72 @@
+<!-- *********************************************************************** -->
+<!--                                                                         -->
+<!--                                                      :::      ::::::::  -->
+<!-- basics.html                                        :+:      :+:    :+:  -->
+<!--                                                  +:+ +:+         +:+    -->
+<!-- By: mmacdona <marvin@42.fr>                    +#+  +:+       +#+       -->
+<!--                                              +#+#+#+#+#+   +#+          -->
+<!-- Created: 2017/10/02 12:16:36 by mmacdona          #+#    #+#            -->
+<!-- Updated: 2017/10/02 13:22:30 by mmacdona         ###   ########.fr      -->
+<!--                                                                         -->
+<!-- *********************************************************************** -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basics</title>
+		<style>
+			body {
+				background-color: pink;
+				}
+			#body-div {
+				width: 1000px;
+				min-height: 100px;
+				}
+			h1 {
+				font-size: 72pt;
+				width: 100%;
+				text-align: center;
+				color: white;
+				}
+			.img-cont {
+				display: inline-block;
+				width: 490px;
+				min-height: 250px;
+				line-height: 250px;
+				}
+			.img-cont > img {
+				position: inline-block;
+				vertical-align: middle;
+				width: 485px;
+				}
+			.img-cont > label {
+				height: 50px;
+				width: 485px;
+				text-align: center;
+				display: inline-block;
+				vertical-align: text-top;
+				}
+			h2	{
+				font-family: monospace;
+				font-style: italic;
+				width: 990px;
+				text-align: right;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="body-div">
+			<h1>&lt; UpDog &gt;</h1>
+			<div id="logo1" class="img-cont">
+				<img src="logo1.png" alt="takealot.com logo">
+				<label for="logo1"><a href="http://www.takealot.com"> takealot.com </a></label>
+			</div>	
+			<div id="logo2" class="img-cont">
+				<img src="logo2.png" alt="amazon.com logo">
+				<label for="logo2"><a href="http://www.amazon.com"> amazon.com </a></label>
+			</div>	
+			<hr/>
+			<h2> &copy; mmacdona 2017 </h2>
+		</div>
+	</body>
+</html>
