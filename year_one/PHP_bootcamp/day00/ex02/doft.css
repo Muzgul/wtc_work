@@ -10,4 +10,133 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#body-div{
+	width: 1420px;
+	padding: 0;
+	margin:0 auto;
+	height: 750px;
+}
 
+#head-div{
+	width: 1420px;
+	height: 122px;
+	padding: 10px;
+	margin:0 auto;
+	background-color: #909090;
+	line-height: 122px;
+	border-radius: 10px;
+	box-shadow: 10px 10px 10px black;
+}
+#head-div > img{
+	display: inline-block;
+	height: 142px;
+	vertical-align: top;
+}
+
+#doft-controls{
+	display: inline-block;
+	height: 121px;
+	vertical-align: top;
+	width: 21px;
+	line-height: 102px;
+	padding: 0;
+	float: right;
+}
+
+#doft-controls > img{
+	vertical-align: top;
+	width: 21px;
+	height: 21px;
+}
+
+a > img{
+	vertical-align: top;
+	width: 21px;
+	height: 21px;
+}
+
+#content{
+	width: 1420px;
+	margin-top: 21px;
+	padding-left: 21px;
+}
+
+#content > div{
+	display: inline-block;
+	background-color: #909090;
+	border-radius: 10px;
+	box-shadow: 10px 10px 10px black;
+	margin-left: 0;
+	margin-right: 21px;
+}
+
+#left-controls{
+	width: 100px;
+	padding: 21px;
+	vertical-align: top;
+	height: 400px;
+}
+
+.control-img > img{
+	width: 75px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+#right-controls{
+	width: 100px;
+	padding: 21px;
+	vertical-align: top;
+	height: 400px;
+}
+
+#center-img{
+	width: 1021px;
+	padding: 10px;
+	position: relative;
+}
+
+#center-img > img{
+	width: 1021px;
+}
+
+#bricks{
+	background: url("resources/brick.jpg") repeat;
+	width: 120px;
+	height: 70px;
+	margin-left: -10px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+#chat-box{
+	background-color: #88FF89;
+	box-shadow: 10px 10px 10px black;
+	width: 510px;
+	height: 150px;
+	border-radius: 10px;
+	position: relative;
+	margin-top: -85px;
+	margin-left: -50px;
+	padding: 10px;
+	padding-top: 5px;
+	text-align: left;
+	font-size: 14pt;
+	font-family: sans-serif;
+}
+
+#chair{
+	position: absolute;
+	width: 100px;
+	height: 150px;
+	top: 350px;
+	left: 321px;
+}
+
+#screen{
+	position: absolute;
+	width: 120px;
+	height: 100px;
+	right: 260px;
+	bottom: 180px;
+}

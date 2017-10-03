@@ -15,39 +15,43 @@
 <html>
     <head>
         <title>Day of the 42</title>
+        <link rel="stylesheet" href="doft.css">
     </head>
-    <body>
+    <body align=center style="background-color: #505050;">
         <div id="body-div">
             <div id="head-div">
-                <div id="doft-text">Day of the 42</div>
-                <img src="loupe.png" alt="Loupe">
+                <img src="resources/day_of_the_42.png" style="height: 121px;" align="left" title="DOFT">
+                <img id="loupe" src="resources/loupe.png" alt="Loupe" style="height: 150px; margin-right: -675px;" title="Search">
                 <div id="doft-controls">
-                    <img src="reload.png" alt="Reload">
-                    <img src="close.gif" alt="Close">
+                    <a href="http://www.disney.com"><img src="resources/reload.png" title=" Start from the beginning" alt="Reload"></a>
+                    <a href="https://www.relaischateaux.com/"><img src="resources/close.gif" alt="Close" title="Disconnect"></a>
                 </div>
             </div>
-        </div>
-        <div id="content">
-            <div id="left-controls">
-                <img src="arrow.png" alt="Arrow">
-                <img src="main.png" alt="Main">
-                <img src="oeil.png" alt="Oeil">
-                <img src="outil.png" alt="Outil">
-                <img src="char-icon.png" alt="Chat">
+            <div id="content">
+                <div id="left-controls" class="control-img">
+                    <img src="resources/arrow.png" alt="Advance" title="Advance">
+                    <img src="resources/main.png" alt="Take" title="Take">
+                    <img src="resources/oeil.png" alt="Look" title="Look" style="border: solid 5px red; border-radius: 5px;">
+                    <img src="resources/outil.png" alt="Use" title="Use">
+                    <img src="resources/chat-icon.png" alt="Speak" title="Speak">
+                </div>
+                <div id="center-img">
+                    <img src="resources/cluster.jpg" alt="Cluster">
+                    <a href="http://www.ikea.com" id="chair" title="Shop"></a>
+                    <a href="http://www.apple.com" id="screen" title="The Dark Side"></a>
+                </div>
+                <div id="right-controls" class="control-img">
+                    <img src="resources/book.png" alt="Book" title="Info">
+                    <img src="resources/towel.png" alt="Towel" title="Fresh Start">
+                    <div id="bricks" title="Hard Mode"></div> 
+                </div>
             </div>
-            <div id="center-img">
-                <img src="cluster.jpg" alt="Cluster">
-            </div>
-            <div id="right-controls">
-                <img src="book.png" alt="Book">
-                <img src="towel.png" alt="Towel">
-                <img src="brick.jpg" alt="Brick">
-            </div>
+            <div id="chat-box">
+            <span>Vous <span style="font-size: 30pt; font-family: serif;">entrez</span> alors dans une grande piece remplie <span style="text-shadow: 5px 5px 5px red;">d'ordinateurs</span>...</span><br/>
+            <span style="font-style: oblique;">- Bonjour, vous &#234;tes nouveau ici ?</span><br/>
+            <input type="text" size="60"><button style="margin-left: 10px;">Repondre</button>
         </div>
-        <div id="chat-box">
-            <span>Vous <span style="font-weight: bold;">entrez</span> alors dans une grande piece remplie <span>d'ordinateurs</span>...</span><br/>
-            <span style="font-style: italic;">- Bonjour, vous etes nouveau ici ?</span>
-            <input type="text"><button>Repondre</button>
         </div>
+        
     </body>
 </html>
