@@ -12,13 +12,23 @@
 		$text = fread($file, $size);
 		fclose($file);
 
-		$dom = new DOMDocument;
+
+		$dom = new domDocument;
 		$dom->loadHTML($text);
-		$elems = $dom->getElementsByTagName('a *');
-		foreach ($elems as $value) {
-			$value->setAttribute('title', strtoupper($value->getAttribute('title')));
+		$elements = $dom->getElementsByTagName('a');
+		foreach ($elements as $elem)
+		{
+				$children = $elem->getElementsByTagName('*');
+				$string = "";
+				foreach ($children as $child)
+				{
+					$child->setAttribute('title', strtoupper($child->getAttribute('title')));
+					$string .= $dom->saveHTML($child);
+				}
+				$elem->nodeValue = strtoupper($elem->nodeValue) . $string;
+				$elem->setAttribute('title', strtoupper($elem->getAttribute('title')));
 		}
-		$text = $dom->saveHTML();
-		echo $text;
+		$return = $dom->saveHTML();
+		echo htmlspecialchars_decode($return);
 	}
 ?>

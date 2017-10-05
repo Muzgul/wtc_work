@@ -1,5 +1,6 @@
 #!/usr/bin/php
 <?php
+	date_default_timezone_set('CET');
 	function check_days($line){
 		$days = array("lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche");
 		foreach ($days as $key => $value) {
@@ -24,21 +25,31 @@
 			return (0);
 		if (!(is_numeric($array[1]) && $array[1] > 0 && $array[1] < 32))
 			return (0);
-		if (!(is_numeric($array[3]) && $array[3] > 1969 && $array[3] < 10000))
+		if (!(is_numeric($array[3]) && $array[3] > 1969 && $array[3] < 2039))
 			return (0);
-		if (preg_match("/(2[0-3]|[01]?[0-9]):([0-5]?[0-9]):([0-5]?[0-9])/", $array[4]) != 1)
+		if (preg_match("/(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])/", $array[4]) != 1)
+			return (0);
+		if (strlen(trim($array[4])) != 8)
+			return (0);
+		$time = explode(':', trim($array[4]));
+		if ($time[0] < 0 || $time[0] > 23)
+			return (0);
+		if ($time[1] < 0 || $time[1] > 59)
+			return (0);
+		if ($time[2] < 0 || $time[2] > 59)
 			return (0);
 		return ($array);
 	}
 	function calc($array)
 	{
-		$total = (($array[3] - 1970)) * 31536000 ;
-		$total += check_months($array[2]) * 2630000  ;
-		$total += ($array[1] - 1) * 86400;
-		$temp = explode(':', $array[4]);
-		$total += $temp[0] * 3600;
-		$total += $temp[1] * 60;
-		$total += $temp[2];
+		$day = $array[1];
+		if ($day < 10)
+			$day = "0" . $day;
+		$month = check_months($array[2]) + 1;
+		if ($month < 10)
+			$month = "0" . $month;
+		$string = $array[3] . ":" . $month . ":" . $day . " " . $array[4];
+		$total = strtotime($string);
 		return ($total);
 	}
 	for ($i = 1; $i < $argc; $i++)
