@@ -10,10 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 #include "get_next_line.h"
 
 int		line_end(t_list **head)
 {
+	printf("line_end\n");
+
+	if (*head == NULL)
+		return (0);
+	else
+		printf("%s\n", (*head)->content);
 	if (ft_strsearch((*head)->content, '\n') != 0 ||
 		ft_strsearch((*head)->content, -1) != 0)
 		return (1);
@@ -22,15 +30,20 @@ int		line_end(t_list **head)
 
 void	read_to_list(const int fd, t_list **head)
 {
+	printf("read_to_list\n");
+	static int	count = 0;
 	char		buff[BUFF_SIZE];
+	char		*temp;
 	t_list		*new;
 
 	read(fd, buff, BUFF_SIZE);
-	if (ft_strsearch(buff, '\n') != 0)
+	printf("%zu\n", ft_strsearch((char *)buff, '\n'));
+	if (ft_strsearch((char *)buff, '\n') != 0)
 	{
-		new = ft_lstnew((void*)buff, ft_strsearch(buff, '\n'));
+		new = ft_lstnew((void*)buff, ft_strsearch(buff, '\n') + 1);
 		temp = ft_strnew(BUFF_SIZE - ft_strsearch(buff, '\n'));
 		ft_strcpy(temp, &buff[ft_strsearch(buff, '\n') + 1]);
+		printf("%s\n", new->content);
 	}
 	else
 	{
@@ -44,6 +57,7 @@ void	read_to_list(const int fd, t_list **head)
 
 int		count_size(t_list **head)
 {
+	printf("count_size\n");
 	t_list	*current;
 	int		count;
 
@@ -54,30 +68,44 @@ int		count_size(t_list **head)
 		count += current->content_size;
 		current = current->next;
 	}
+	printf("%i\n", count);
 	return (count);
 }
 
 void	make_line(char **line, t_list **head)
 {
-	t_list *current;
+	printf("make_line\n");
+	t_list	*current;
+	char 	*tempStr;
+	size_t	tempInt;
 
 	*line = ft_strnew(count_size(head));
 	current = *head;
 	while (current != NULL)
 	{
-		*line = ft_strjoin(current->content, *line);
+		if ((tempInt = ft_strsearch(current->content, '\n')) != 0)
+		{
+			tempStr = ft_strnew(tempInt);
+			tempStr = ft_strncpy(tempStr, current->content, tempInt);
+		}
+		else
+			tempStr = current->content;
+		*line = ft_strjoin(tempStr, *line);
 		current = current->next;
 	}
+	printf("%sLOL\n", *line);
 }
 
 int		get_next_line(const int fd, char **line)
 {
+	printf("get_next_line\n");
 	t_list *head;
 
 	head = NULL;
-	while (line_end(&head) == 0)
+	if (line_end(&head) == 0)
 	{
 		read_to_list(fd, &head);
+		printf("%i", line_end(&head));
 	}
 	make_line(line, &head);
 	return (0);
