@@ -16,12 +16,10 @@
 
 int		line_end(t_list **head)
 {
-	printf("line_end\n");
+	//printf("line_end\n");
 
 	if (*head == NULL)
 		return (0);
-	else
-		printf("%s\n", (*head)->content);
 	if (ft_strsearch((*head)->content, '\n') != 0 ||
 		ft_strsearch((*head)->content, -1) != 0)
 		return (1);
@@ -30,20 +28,25 @@ int		line_end(t_list **head)
 
 void	read_to_list(const int fd, t_list **head)
 {
-	printf("read_to_list\n");
-	static int	count = 0;
+	//printf("read_to_list\n");
 	char		buff[BUFF_SIZE];
-	char		*temp;
+	static char	*temp = NULL;
 	t_list		*new;
 
-	read(fd, buff, BUFF_SIZE);
-	printf("%zu\n", ft_strsearch((char *)buff, '\n'));
+	if (temp != NULL)
+	{
+		ft_strcpy((char *)&buff, temp);
+		free(temp);
+		temp = NULL;
+
+	}
+	else
+		read(fd, buff, BUFF_SIZE);
 	if (ft_strsearch((char *)buff, '\n') != 0)
 	{
 		new = ft_lstnew((void*)buff, ft_strsearch(buff, '\n') + 1);
 		temp = ft_strnew(BUFF_SIZE - ft_strsearch(buff, '\n'));
 		ft_strcpy(temp, &buff[ft_strsearch(buff, '\n') + 1]);
-		printf("%s\n", new->content);
 	}
 	else
 	{
@@ -57,7 +60,7 @@ void	read_to_list(const int fd, t_list **head)
 
 int		count_size(t_list **head)
 {
-	printf("count_size\n");
+	//printf("count_size\n");
 	t_list	*current;
 	int		count;
 
@@ -68,13 +71,12 @@ int		count_size(t_list **head)
 		count += current->content_size;
 		current = current->next;
 	}
-	printf("%i\n", count);
 	return (count);
 }
 
 void	make_line(char **line, t_list **head)
 {
-	printf("make_line\n");
+	//printf("make_line\n");
 	t_list	*current;
 	char 	*tempStr;
 	size_t	tempInt;
@@ -93,20 +95,20 @@ void	make_line(char **line, t_list **head)
 		*line = ft_strjoin(tempStr, *line);
 		current = current->next;
 	}
-	printf("%sLOL\n", *line);
 }
 
 int		get_next_line(const int fd, char **line)
 {
-	printf("get_next_line\n");
+	//printf("get_next_line\n");
 	t_list *head;
 
 	head = NULL;
 	if (line_end(&head) == 0)
 	{
 		read_to_list(fd, &head);
-		printf("%i", line_end(&head));
 	}
+	if (count_size(&head) == 0)
+		return (0);
 	make_line(line, &head);
-	return (0);
+	return (1);
 }
