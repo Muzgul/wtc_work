@@ -16,12 +16,20 @@
 
 int		line_end(t_list **head)
 {
+	t_list *current;
 	//printf("line_end\n");
 
 	if (*head == NULL)
 		return (0);
-	if (ft_strsearch((*head)->content, '\n') != 0 ||
-		ft_strsearch((*head)->content, -1) != 0)
+	if ((*head)->content == NULL)
+		return (1);
+	current = *head;
+	while (current->next != NULL)
+		current = current->next;
+	if (current->content == NULL)
+		return (1);	
+	if (ft_strsearch(current->content, '\n') != 0 ||
+		ft_strsearch(current->content, -1) != 0)
 		return (1);
 	return (0);
 }
@@ -29,10 +37,12 @@ int		line_end(t_list **head)
 void	read_to_list(const int fd, t_list **head)
 {
 	//printf("read_to_list\n");
-	char		buff[BUFF_SIZE];
+	char		buff[BUFF_SIZE + 1];
 	static char	*temp = NULL;
 	t_list		*new;
+	int			readVal;
 
+	readVal = -1;
 	if (temp != NULL)
 	{
 		ft_strcpy((char *)&buff, temp);
@@ -41,12 +51,20 @@ void	read_to_list(const int fd, t_list **head)
 
 	}
 	else
-		read(fd, buff, BUFF_SIZE);
+	{
+		readVal = read(fd, buff, BUFF_SIZE);
+		buff[BUFF_SIZE] = '\0';
+	}
+	
+	//printf("Buff: %s\n", buff);
 	if (ft_strsearch((char *)buff, '\n') != 0)
 	{
 		new = ft_lstnew((void*)buff, ft_strsearch(buff, '\n') + 1);
-		temp = ft_strnew(BUFF_SIZE - ft_strsearch(buff, '\n'));
-		ft_strcpy(temp, &buff[ft_strsearch(buff, '\n') + 1]);
+		if (ft_strsearch((char *)buff, '\n') != (BUFF_SIZE - 1))
+		{
+			temp = ft_strnew(BUFF_SIZE - ft_strsearch(buff, '\n') + 1);
+			ft_strcpy(temp, &buff[ft_strsearch(buff, '\n') + 1]);
+		}
 	}
 	else
 	{
@@ -54,8 +72,11 @@ void	read_to_list(const int fd, t_list **head)
 			new = ft_lstnew((void*)buff, ft_strsearch(buff, -1));
 		else
 			new = ft_lstnew((void*)buff, ft_strlen(buff));
+		if (buff[0] == '\n' && readVal == 1)
+			new->content = NULL;
 	}
 	ft_lstadd(head, new);
+	//printf("New: %s\n", new->content);
 }
 
 int		count_size(t_list **head)
@@ -83,7 +104,7 @@ void	make_line(char **line, t_list **head)
 
 	*line = ft_strnew(count_size(head));
 	current = *head;
-	while (current != NULL)
+	while (current != NULL && current->content != NULL)
 	{
 		if ((tempInt = ft_strsearch(current->content, '\n')) != 0)
 		{
@@ -92,18 +113,18 @@ void	make_line(char **line, t_list **head)
 		}
 		else
 			tempStr = current->content;
-		*line = ft_strjoin(tempStr, *line);
+		*line = ft_strjoin(*line, tempStr);
 		current = current->next;
 	}
 }
 
 int		get_next_line(const int fd, char **line)
 {
-	//printf("get_next_line\n");
+	printf("");
 	t_list *head;
 
 	head = NULL;
-	if (line_end(&head) == 0)
+	while (line_end(&head) == 0)
 	{
 		read_to_list(fd, &head);
 	}
